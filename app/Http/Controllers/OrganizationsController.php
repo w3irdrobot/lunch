@@ -9,35 +9,49 @@ use App\Organization;
 use App\Restaurant;
 use App\User;
 use App\Role;
+use App\Invitation;
+use Mail;
 
 class OrganizationsController extends Controller
 {
     public function users(Request $request, $id)
     {
-        $organization = Organization::find($id);
+        $organization = Organization::findOrFail($id);
 
-        if ($organization) {
-            return view('organizations.users', ['organization' => $organization]);
-        } else {
-            return (new Response('Organization not found', 404));
-        }
+        return view('organizations.users', ['organization' => $organization]);
     }
 
     public function sendInvite(Request $request, $id) {
-        $organization = Organization::find($id);
+        $organization = Organization::findOrFail($id);
 
-        if ($organization) {
-            $user = User::where('email', $request->input('email'))->first();
+        $email = $request->input('email');
+        $user = User::where('email', $request->input('email'))->first();
 
-            if ($user) {
-                Role::create(['user_id' => $user->id, 'organization_id' => $organization->id, 'role' => 'admin']);
-                return redirect()->route('organizationUsers', $organization)
-                    ->with('status', 'The user has been added to your organization.');
-            } else {
+        if ($user) {
+            Role::create(['user_id' => $user->id, 'organization_id' => $organization->id, 'role' => 'admin']);
 
-            }
+            $link = url('/') . '/dashboard';
+            Mail::send('emails.new_invitation', ['link' => $link], function($message) use ($email) {
+                $message->to($email)->subject('You have been invited to Lunch.run!');
+            });
+
+            return redirect()->route('organizationUsers', $organization)
+                ->with('status', 'The user has been added to your organization.');
         } else {
-            return (new Response('Organization not found', 404));
+            $token = substr(md5(rand()), 0, 20);
+            Invitation::create([
+                'email' => $email,
+                'token' => $token,
+                'organization_id' => $id
+            ]);
+
+            $link = url('/') . '/auth/login?t=' . $token;
+            Mail::send('emails.new_invitation', ['link' => $link], function($message) use ($email) {
+                $message->to($email)->subject('You have been invited to Lunch.run!');
+            });
+
+            return redirect()->route('organizationUsers', $organization)
+                ->with('status', 'The user has been invited to your organization.');
         }
     }
     
