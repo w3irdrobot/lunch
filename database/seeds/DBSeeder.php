@@ -1,13 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Database\Seeder;
 
 class DBSeeder extends Seeder
 {
     public function run()
     {
-        //\App\Poll::truncate();
-        //\App\Restaurant::truncate();
+        Artisan::call('migrate:refresh');
         
         $user = \App\User::create([
             'email' => 'test1@testing.com',
@@ -41,6 +41,12 @@ class DBSeeder extends Seeder
             'organization_id' => 1,
             'role' => 'Tester',
         ]);         
+ 
+        $organization_order = \App\OrganizationOrder::create([
+            'organization_restaurant_id' => 1,
+            'due_by' => '2017-05-18 04:00:00',
+            'closed_at' => '2017-05-18 03:00:00',
+        ]);         
         
         $user_order = \App\UserOrder::create([
             'user_id' => 1,
@@ -49,18 +55,8 @@ class DBSeeder extends Seeder
             'default' => 1,
             'order' => 'Test Burger',         
         ]);         
-      
-        $organization_order = \App\OrganizationOrder::create([
-            'organization_restaurant_id' => 1,
-            'due_by' => '2017-05-18 04:00:00',
-            'closed_at' => '2017-05-18 03:00:00',
-        ]);     
-        
-        $poll_restaurant = \App\PollRestaurant::create([
-            'poll_id' => 1,
-            'restaurant_id' => 1,
-        ]);
-        
-        $poll->restaurants[0]->users()->save($user);
+ 
+        $polloption = \App\PollRestaurant::find(1);
+        $polloption->users()->save($user);
     }
 }

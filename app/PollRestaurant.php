@@ -32,7 +32,7 @@ class PollRestaurant extends Model {
     }    
     
     public function users() {
-        return $this->belongsToMany('App\Users','polls_responses');
+        return $this->belongsToMany('App\User','polls_responses');
     }
 
 }
