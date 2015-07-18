@@ -22,6 +22,12 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {
+        $organization = \App\Organization::find(1);
+        $restaurant = \App\Restaurant::find(1);
+        
+        dd($organization->restaurants);
+        die();
+        
         $organization = \App\Organization::findOrFail($request->input('organization'));
         $test = $organization->restaurants;
         dd($test);

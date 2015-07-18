@@ -6,26 +6,21 @@ class OrganizationSeeder extends Seeder
 {
     public function run()
     {
-        \App\Organization::truncate();
-        \App\Organization::create([
+        //\App\Organization::truncate();
+        //\App\Restaurant::truncate();
+        
+        $organization = \App\Organization::create([
             'name' => 'Testing1',
             'city' => 'Cincinnati',
             'state' => 'OH',
             'country' => 'USA',
         ]);
         
-        \App\Organization::create([
-            'name' => 'Testing2',
-            'city' => 'Dayton',
-            'state' => 'OH',
-            'country' => 'USA',
+        $restaurant = \App\Restaurant::create([
+            'name' => 'Burger King',
         ]);
         
-        \App\Organization::create([
-            'name' => 'Testing3',
-            'city' => 'Columbus',
-            'state' => 'OH',
-            'country' => 'USA',
-        ]);        
+        $organization->restaurants()->save($restaurant);
+       
     }
 }

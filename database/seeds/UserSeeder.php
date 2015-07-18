@@ -7,12 +7,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         \App\User::truncate();
-        \App\User::create([
+        $user = \App\User::create([
             'email' => 'test1@testing.com',
             'password' => 'test1',
             'firstName' => 'ftesting1',
             'lastName' => 'ltesting1',
-        ]); 
+        ]);
         
         \App\User::create([
             'email' => 'test2@testing.com',

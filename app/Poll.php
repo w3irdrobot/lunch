@@ -24,8 +24,12 @@ class Poll extends Model {
         'organization_id' => 'exists:organizations,id|integer|min:0|required'
     ];
 
-    public function Organizations() {
+    public function organizations() {
         return $this->belongsTo('App\Organization');
+    }
+    
+    public function restaurants() {
+        return $this->belongsToMany('App\Restaurant','polls_restaurants');
     }
 
 }

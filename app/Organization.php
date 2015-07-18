@@ -35,7 +35,7 @@ class Organization extends Model {
     }
     
     public function restaurants() {
-        return $this->hasMany('App\Restaurant');
+        return $this->belongsToMany('App\Restaurant','organizations_restaurants');
     }
 
 }
