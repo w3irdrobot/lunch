@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Seeder extends Seeder
+class DBSeeder extends Seeder
 {
     public function run()
     {
@@ -56,8 +56,11 @@ class Seeder extends Seeder
             'closed_at' => '2017-05-18 03:00:00',
         ]);     
         
-
+        $poll_restaurant = \App\PollRestaurant::create([
+            'poll_id' => 1,
+            'restaurant_id' => 1,
+        ]);
         
-        
+        $poll->restaurants[0]->users()->save($user);
     }
 }
