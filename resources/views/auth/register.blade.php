@@ -1,4 +1,4 @@
-<!-- resources/views/auth/register.blade.php -->
+@extends('layouts.master')
 
 <form method="POST" action="/auth/register">
     {!! csrf_field() !!}
