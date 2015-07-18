@@ -22,7 +22,7 @@ class PollTableCreation extends Migration
             $table->foreign('organization_id')->references('id')->on('organizations');
         });
         
-        Schema::create('poll_restaurants', function (Blueprint $table) {
+        Schema::create('polls_restaurants', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('poll_id')->unsigned();
             $table->integer('restaurant_id')->unsigned();
@@ -32,7 +32,7 @@ class PollTableCreation extends Migration
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
         });
         
-        Schema::create('poll_responses', function (Blueprint $table) {
+        Schema::create('polls_responses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('poll_restaurant_id')->unsigned();
@@ -50,8 +50,8 @@ class PollTableCreation extends Migration
      */
     public function down()
     {
+        Schema::drop('polls_responses');
+        Schema::drop('polls_restaurants');
         Schema::drop('polls');
-        Schema::drop('poll_restaurants');
-        Schema::drop('poll_responses');
     }
 }
