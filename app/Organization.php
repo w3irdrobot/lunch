@@ -30,6 +30,10 @@ class Organization extends Model {
         return $this->hasMany('App\Role');
     }
 
+    public function users() {
+        return $this->belongsToMany('App\User', 'roles');
+    }
+
     public function polls() {
         return $this->hasMany('App\Poll');
     }

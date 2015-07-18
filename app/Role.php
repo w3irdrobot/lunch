@@ -24,11 +24,11 @@ class Role extends Model {
         'role' => 'max:255|string'
     ];
 
-    public function organizations() {
+    public function organization() {
         return $this->belongsTo('App\Organization');
     }
 
-    public function users() {
+    public function user() {
         return $this->belongsTo('App\User');
     }
 

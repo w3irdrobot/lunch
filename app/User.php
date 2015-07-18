@@ -41,4 +41,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         'lastName' => 'max:255|string',
         'remember_token' => 'max:100|string'
     ];
+
+    public function getFullName() {
+        return $this->firstName . " " . $this->lastName;
+    }
 }
