@@ -36,6 +36,7 @@ class RestaurantController extends Controller
         }
         return view('restaurant.list', [
             'restaurants' => $restaurants,
+            'organization' => $organization,
         ]);
     }
 

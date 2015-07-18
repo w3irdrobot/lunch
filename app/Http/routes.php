@@ -12,9 +12,11 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::resource('restaurant', 'RestaurantController');
-Route::get('organization/restaurant/add/{id}', 'OrganziationController@addRestaurant');
-Route::get('organization/restaurant/remove/{id}', 'OrganziationController@removeRestaurant');
+Route::get('restaurant', ['uses' => 'RestaurantController@index', 'as' => 'restaurant.index']);
+Route::get('restaurant/create',  ['uses' => 'RestaurantController@create', 'as' => 'restaurant.create']);
+Route::post('restaurant',  ['uses' => 'RestaurantController@store', 'as' => 'restaurant']);
+Route::get('organization/{orgId}/restaurant/add/{id}',  ['uses' => 'OrganizationsController@addRestaurant', 'as' => 'organization.addRestaurant']);
+Route::get('organization/{orgId}/restaurant/remove/{id}',  ['uses' => 'OrganizationsController@removeRestaurant', 'as' => 'organization.removeRestaurant']);
 
 Route::get('/', function () {
     return view('welcome');

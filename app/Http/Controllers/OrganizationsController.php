@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Organization;
+use App\Restaurant;
 use App\User;
 use App\Role;
 
@@ -38,5 +39,21 @@ class OrganizationsController extends Controller
         } else {
             return (new Response('Organization not found', 404));
         }
+    }
+    
+    public function addRestaurant(Request $request, $orgId, $id) {
+        $organization = Organization::find($orgId);
+        $restaurant = Restaurant::find($id);
+        $organization->restaurants()->save($restaurant);
+        
+        return redirect()->route('restaurant.index');
+    }
+    
+    public function removeRestaurant(Request $request, $orgId, $id) {
+        $organization = Organization::find($orgId);
+        /* @var $organization Organization */
+        $organization->restaurants()->detach($id);
+        
+        return redirect()->route('restaurant.index');
     }
 }

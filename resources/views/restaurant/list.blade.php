@@ -11,9 +11,9 @@
             <td>{{ $restaurant->name }}</td>
             <td>
                 @if ($restaurant->is_used)
-                <a href='/organization/restaurant/add/{{ $restaurant->id }}'>Remove</a>
+                <a href='/organization/{{ $organization->id }}/restaurant/remove/{{ $restaurant->id }}'>Remove</a>
                 @else
-                <a href='/organization/restaurant/remove/{{ $restaurant->id }}'>Add</a>
+                <a href='/organization/{{ $organization->id }}/restaurant/add/{{ $restaurant->id }}'>Add</a>
                 @endif
             </td>
         </tr>
