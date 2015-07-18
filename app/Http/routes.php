@@ -12,9 +12,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::get('restaurant', ['uses' => 'RestaurantController@index', 'as' => 'restaurant.index']);
-Route::get('restaurant/create',  ['uses' => 'RestaurantController@create', 'as' => 'restaurant.create']);
-Route::post('restaurant',  ['uses' => 'RestaurantController@store', 'as' => 'restaurant']);
+Route::get('restaurant', ['uses' => 'RestaurantsController@index', 'as' => 'restaurant.index']);
+Route::get('restaurant/create',  ['uses' => 'RestaurantsController@create', 'as' => 'restaurant.create']);
+Route::post('restaurant',  ['uses' => 'RestaurantsController@store', 'as' => 'restaurant']);
 Route::get('organization/{orgId}/restaurant/add/{id}',  ['uses' => 'OrganizationsController@addRestaurant', 'as' => 'organization.addRestaurant']);
 Route::get('organization/{orgId}/restaurant/remove/{id}',  ['uses' => 'OrganizationsController@removeRestaurant', 'as' => 'organization.removeRestaurant']);
 

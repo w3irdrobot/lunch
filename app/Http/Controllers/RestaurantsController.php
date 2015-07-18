@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Restaurant;
 
-class RestaurantController extends Controller
+class RestaurantsController extends Controller
 {
     public function __construct()
     {
