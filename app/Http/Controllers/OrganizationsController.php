@@ -45,7 +45,7 @@ class OrganizationsController extends Controller
                 'organization_id' => $id
             ]);
 
-            $link = url('/') . '/auth/login?t=' . $token;
+            $link = url('/') . '/auth/register?t=' . $token;
             Mail::send('emails.new_invitation', ['link' => $link], function($message) use ($email) {
                 $message->to($email)->subject('You have been invited to Lunch.run!');
             });
@@ -54,20 +54,20 @@ class OrganizationsController extends Controller
                 ->with('status', 'The user has been invited to your organization.');
         }
     }
-    
+
     public function addRestaurant(Request $request, $orgId, $id) {
         $organization = Organization::find($orgId);
         $restaurant = Restaurant::find($id);
         $organization->restaurants()->save($restaurant);
-        
+
         return redirect()->route('restaurant.index');
     }
-    
+
     public function removeRestaurant(Request $request, $orgId, $id) {
         $organization = Organization::find($orgId);
         /* @var $organization Organization */
         $organization->restaurants()->detach($id);
-        
+
         return redirect()->route('restaurant.index');
     }
 }

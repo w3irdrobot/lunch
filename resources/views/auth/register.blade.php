@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-<form method="POST" action="/auth/register">
+<form method="POST" action="/auth/register{{ $query_params }}">
     {!! csrf_field() !!}
 
     <div>

@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
+use App\Role;
+use App\Invitation;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\RedirectsUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class AuthController extends Controller
 {
@@ -21,7 +26,9 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesUsers, ThrottlesLogins, RedirectsUsers {
+        AuthenticatesUsers::redirectPath insteadof RedirectsUsers;
+    }
 
     protected $redirectPath = '/dashboard';
 
@@ -65,5 +72,57 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getRegister(Request $request)
+    {
+        if ($request->has('t')) {
+            $invitation = Invitation::where(['token' => $request->input('t')])->first();
+            $query_params = '?t=' . $request->input('t');
+        } else {
+            $query_params = '';
+        }
+
+        return view('auth.register', [
+            'query_params' => $query_params
+        ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $user = $this->create($request->all());
+        Auth::login($user);
+
+        if ($request->has('t')) {
+            $invitation = Invitation::where([
+                'token' => $request->input('t')
+            ])->first();
+
+            if ($invitation) {
+                Role::create(['user_id' => $user->id, 'organization_id' => $invitation->organization_id, 'role' => 'admin']);
+                $invitation->delete();
+            }
+        }
+
+        return redirect($this->redirectPath());
     }
 }
