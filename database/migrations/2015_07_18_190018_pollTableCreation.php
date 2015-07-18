@@ -39,7 +39,7 @@ class PollTableCreation extends Migration
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('poll_restaurant_id')->references('id')->on('poll_restaurants');
+            $table->foreign('poll_restaurant_id')->references('id')->on('polls_restaurants');
         });        
     }
 
