@@ -13,6 +13,8 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::resource('restaurant', 'RestaurantController');
+Route::get('organization/restaurant/add/{id}', 'OrganziationController@addRestaurant');
+Route::get('organization/restaurant/remove/{id}', 'OrganziationController@removeRestaurant');
 
 Route::get('/', function () {
     return view('welcome');

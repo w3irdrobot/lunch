@@ -22,19 +22,20 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {
-        $organization = \App\Organization::find(1);
-        $restaurant = \App\Restaurant::find(1);
-        
-        dd($organization->restaurants);
-        die();
-        
-        $organization = \App\Organization::findOrFail($request->input('organization'));
-        $test = $organization->restaurants;
-        dd($test);
-        
+        $organization = \App\Organization::findOrFail($request->input('organization',2));
+        $restaurants = Restaurant::orderBy('name')->get();
+        foreach($restaurants as $restaurant) {
+            $restaurant->is_used = false;
+            if(count($organization->restaurants) > 0) {
+                foreach($organization->restaurants as $orgRest) {
+                    if($orgRest->id == $restaurant->id) {
+                        $restaurant->is_used = true;
+                    }
+                }
+            }
+        }
         return view('restaurant.list', [
-            'restaurants' => Restaurant::orderBy('name')->get(),
-            'organization_restaurants' => $organization->restaurants
+            'restaurants' => $restaurants,
         ]);
     }
 
@@ -43,9 +44,13 @@ class RestaurantController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $restaurant = new \App\Restaurant();
+        
+        return view('restaurant.form', [
+            'restaurant' => $restaurant
+        ]);
     }
 
     /**
@@ -56,7 +61,16 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $restaurant = new \App\Restaurant();
+        $restaurant->fill($request->input('Restaurant',[]));
+        if($restaurant->isValid()) {
+            $restaurant->save();
+            return redirect()->route('restaurant.index');
+        } else {
+            return redirect()->route('restaurant.create')
+                ->withErrors($restaurant->getErrors())
+                ->withInput();
+        }
     }
 
     /**

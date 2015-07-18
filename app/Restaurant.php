@@ -2,6 +2,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Watson\Validating\ValidatingTrait;
 
 /**
  * @property integer $id
@@ -10,12 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  */
 
-class Restaurant extends Model {
-
+class Restaurant extends Model 
+{
+    use ValidatingTrait;
+    
     protected $table = 'restaurants';
 
     protected $fillable = ['name'];
 
-    protected $validations = ['name' => 'max:255|string'];
+    protected $rules = ['name' => 'max:255|string|required|unique:restaurants'];
 
 }
