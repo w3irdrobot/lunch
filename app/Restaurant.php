@@ -10,17 +10,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  */
 
-class Restaurants extends Model {
+class Restaurant extends Model {
 
     protected $table = 'restaurants';
+
     protected $fillable = ['name'];
+
     protected $validations = ['name' => 'max:255|string'];
-    
-    public function OrganizationsRestaurants() {
-        return $this->hasMany('App\OrganizationsRestaurants');
-    }
-    public function PollsRestaurants() {
-        return $this->hasMany('App\PollsRestaurants');
-    }
 
 }
