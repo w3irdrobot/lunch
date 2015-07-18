@@ -34,7 +34,7 @@ class RestaurantsController extends Controller
                 }
             }
         }
-        return view('restaurant.list', [
+        return view('restaurants.list', [
             'restaurants' => $restaurants,
             'organization' => $organization,
         ]);
@@ -49,7 +49,7 @@ class RestaurantsController extends Controller
     {
         $restaurant = new \App\Restaurant();
         
-        return view('restaurant.form', [
+        return view('restaurants.form', [
             'restaurant' => $restaurant
         ]);
     }

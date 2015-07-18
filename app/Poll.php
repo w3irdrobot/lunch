@@ -32,4 +32,11 @@ class Poll extends Model {
         return $this->belongsToMany('App\Restaurant','polls_restaurants');
     }
 
+    public function displayStatus() {
+        if($this->closed_at) {
+            return 'Complete';
+        } else {
+            return 'Open';
+        }
+    }
 }

@@ -3,20 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Restaurant;
 
 class PollsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $organization = \App\Organization::findOrFail($request->input('organization', 2));
+        return view('polls.list', [
+            'organization' => $organization,
+        ]);
     }
 
     /**
@@ -50,38 +59,21 @@ class PollsController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
+    
+    public function addRestaurant($id) {
+        $poll = \App\Poll::findOrFail($id);
+        
+        return view('polls.restaurant', [
+            'poll' => $poll,
+            'restaurants' => Restaurant::orderBy('name')->get(),
+        ]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+    
+    public function storeRestaurant(Request $request, $id) {
+        $poll = \App\Poll::findOrFail($id);
+        $restaurant = Restaurant::findOrFail($request->input('restaurant_id'));
+        $poll->restaurants()->save($restaurant);
+        
+        return redirect()->route('poll.index');
     }
 }
