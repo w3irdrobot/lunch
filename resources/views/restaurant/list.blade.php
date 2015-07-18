@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-<table class='table'>
+<table class='table' border='1'>
     <tr>
         <th>Name</th>
     </tr>

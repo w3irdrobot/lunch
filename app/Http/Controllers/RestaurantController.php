@@ -6,19 +6,29 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Restaurants as Restaurant;
+use App\Restaurant;
 
 class RestaurantController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $organization = \App\Organization::findOrFail($request->input('organization'));
+        $test = $organization->restaurants;
+        dd($test);
+        
         return view('restaurant.list', [
-            'restaurants' => Restaurant::orderBy('name')->get()
+            'restaurants' => Restaurant::orderBy('name')->get(),
+            'organization_restaurants' => $organization->restaurants
         ]);
     }
 

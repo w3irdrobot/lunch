@@ -33,5 +33,9 @@ class Organization extends Model {
     public function polls() {
         return $this->hasMany('App\Poll');
     }
+    
+    public function restaurants() {
+        return $this->hasMany('App\Restaurant');
+    }
 
 }
