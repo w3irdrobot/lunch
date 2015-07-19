@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('content')
 <a href='/organizations/{{ $poll->organizations->id }}/poll'>Back to Poll List</a>
 <br><br>
 
@@ -18,3 +19,4 @@ Restaurant Options:<br>
         <a href='/polls/vote/{{ $pollRestaurant->id }}'>Vote for {{$pollRestaurant->restaurants->name}}</a><br>
     @endif
 @endforeach
+@endsection

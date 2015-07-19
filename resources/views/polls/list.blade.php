@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('content')
 <a href='/organizations/{{$organization->id}}/poll/create'>Add New Poll</a>
 <a href='/organizations/{{ $organization->id }}'>Back to Dashboard</a>
 <table class='table' border='1'>
@@ -31,3 +32,4 @@
         </tr>
     @endforeach
 </table>
+@endsection

@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('content')
 <a href='/organizations/{{ $organization->id }}/restaurant/create'>Add New Restaurant</a>
 <a href='/organizations/{{ $organization->id }}'>Back to Dashboard</a>
 <table class='table' border='1'>
@@ -20,3 +21,4 @@
         </tr>
     @endforeach
 </table>
+@endsection

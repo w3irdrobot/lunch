@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('content')
 <a href='/organizations/{{ $organization->id }}/order/create'>New Order</a>
 <a href='/organizations/{{ $organization->id }}'>Back to Dashboard</a>
 
@@ -29,3 +30,4 @@
         </tr>
     @endforeach
 </table>
+@endsection

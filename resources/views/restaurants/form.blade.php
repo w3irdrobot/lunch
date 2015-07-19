@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('content')
 <form action='/organizations/{{ $organization_id }}/restaurant' method='POST'>
     {!! csrf_field() !!}
     @if($errors->any())
@@ -9,3 +10,4 @@
     <input type='text' name='Restaurant[name]' value="{{ $restaurant->name }}" />
     <input type='submit' value='Save' />
 </form>
+@endsection

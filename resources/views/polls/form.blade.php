@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('content')
 <form action='/organizations/{{$poll->organization_id}}/poll' method='POST'>
     {!! csrf_field() !!}
     @if($errors->any())
@@ -9,3 +10,4 @@
     <input type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" />
     <input type='submit' value='Save' />
 </form>
+@endsection

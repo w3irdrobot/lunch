@@ -13,7 +13,7 @@
             | 
             Cost: {{ $lineItem->cost ? number_format($lineItem->cost,2) : 'Not Set' }}
             Paid: {{ $lineItem->paid ? 'PAID' : 'Not Paid' }}
-            <a href='/line-item/{{$lineItem->id}}/update'>Update</a>
+            <a href='/line-item/{{$lineItem->id}}/update'>Update Cost/Status</a>
         </li>
     @endforeach
 </ul>

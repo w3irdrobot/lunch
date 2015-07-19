@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('content')
 <form action='/polls/{{ $poll->id }}/restaurant/store' method='POST'>
     {!! csrf_field() !!}
     @if($errors->any())
@@ -13,3 +14,4 @@
     </select>
     <input type='submit' value='Save' />
 </form>
+@endsection
