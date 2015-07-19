@@ -11,7 +11,7 @@ class DBSeeder extends Seeder
         
         $user = \App\User::create([
             'email' => 'test1@testing.com',
-            'password' => 'test1',
+            'password' => '$2y$10$zhRDGljo5k5jn6oifVCA7.4GzB6OKmV1QkJfvErtcheR0m5jMLK9S',
             'firstName' => 'ftesting1',
             'lastName' => 'ltesting1',
         ]);
