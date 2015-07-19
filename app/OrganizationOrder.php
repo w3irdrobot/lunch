@@ -26,6 +26,14 @@ class OrganizationOrder extends Model {
         'due_by' => 'required|date',
         'closed_at' => 'date'
     ];
+    
+    public function organization() {
+        return \App\Organization::join('organizations_restaurants','organizations.id','=','organizations_restaurants.organization_id')
+            ->join('organization_orders','organization_orders.organization_restaurant_id','=','organizations_restaurants.id')
+            ->where('organization_orders.id','=',$this->id)
+            ->select('organizations.*')
+            ->first();
+    }
 
     public function userOrders() {
         return $this->hasMany('App\LineItem');

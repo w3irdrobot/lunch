@@ -49,6 +49,12 @@ Route::get('user-orders/{id}/default', ['uses' => 'UserOrdersController@makeDefa
 Route::get('organizations/{orgId}/organizations-orders/{id}', ['uses' => 'OrganizationOrderController@show', 'as' => 'orgorder.show']);
 Route::get('organizations/{orgId}/organizations-orders/{id}/close', ['uses' => 'OrganizationOrderController@close', 'as' => 'orgorder.close']);
 
+Route::get('organizations-orders/{id}/lineitem/create', ['uses' => 'LineItemController@create', 'as' => 'lineitem.create']);
+Route::post('organizations-orders/{id}/lineitem', ['uses' => 'LineItemController@store', 'as' => 'lineitem.store']);
+
+Route::get('line-item/{id}/update', ['uses' => 'LineItemController@update', 'as' => 'lineitem.update']);
+Route::post('line-item/{id}/update', ['uses' => 'LineItemController@save', 'as' => 'lineitem.save']);
+
 Route::get('/', function () {
     return view('welcome');
 });
