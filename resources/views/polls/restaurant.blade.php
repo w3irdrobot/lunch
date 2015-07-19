@@ -6,12 +6,34 @@
     @if($errors->any())
     <h4>{{$errors->first()}}</h4>
     @endif
-    <label>Restaurant</label>
-    <select name='restaurant_id'>
-        @foreach ($restaurants as $restaurant)
-            <option value='{{$restaurant->id}}'>{{$restaurant->name}}</option>
-        @endforeach
-    </select>
-    <input type='submit' value='Save' />
+    <div class='row'>
+    <div class='col-sm-6'>
+        <div class='panel panel-default'>
+            <div class='panel-heading'>
+                Add Restaurant
+            </div>
+            <div class='panel-body'>  
+                <table class='table grid'>
+                    <tr>
+                        <td><label>Restaurant</label></td>
+                        <td>
+                            <select name='restaurant_id' class='form-control'>
+                                @foreach ($restaurants as $restaurant)
+                                    <option value='{{$restaurant->id}}'>{{$restaurant->name}}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type='submit' class='btn btn-success btn-outline' value='Save' /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
 </form>
 @endsection
