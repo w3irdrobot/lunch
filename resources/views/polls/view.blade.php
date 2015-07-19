@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+<a href='/organization/{{ $poll->organizations->id }}/poll'>Back to Poll List</a>
+<br><br>
+
 <h1>{{$poll->organizations->name}} poll for {{ date('F j Y',strtotime($poll->closed_by)) }}</h1>
 <h3>Due By: {{ date('g:ia',strtotime($poll->closed_by)) }}</h3>
 

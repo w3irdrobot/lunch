@@ -7,6 +7,7 @@
         <th>Due Date</th>
         <th>Status</th>
         <th>Options</th>
+        <th>Link</th>
     </tr>
     @foreach ($organization->polls as $poll)
         <tr>
@@ -14,11 +15,14 @@
             <td>{{ $poll->displayStatus() }}</td>
             <td>
                 @foreach ($poll->restaurants as $restaurant)
-                    {{ $restaurant->name }} <br>
+                    {{ $restaurant->name }} - {{ $restaurant->pollRestaurants($poll->id)->count() }}<br>
                 @endforeach
                 @if ($poll->displayStatus() == 'Open')
                 <a href='/poll/{{$poll->id}}/restaurant/add'>Add Restaurant</a>
                 @endif
+            </td>
+            <td>
+                <a href='/poll/{{$poll->id}}'>Vote and Results</a>
             </td>
         </tr>
     @endforeach

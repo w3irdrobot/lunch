@@ -20,5 +20,10 @@ class Restaurant extends Model
     protected $fillable = ['name'];
 
     protected $rules = ['name' => 'max:255|string|required|unique:restaurants'];
+    
+    public function pollRestaurants($poll_id) {
+        $pollRestaurants = \App\PollRestaurant::where('restaurant_id','=',$this->id)->where('poll_id','=',$poll_id);
+        return $pollRestaurants;
+    }
 
 }
