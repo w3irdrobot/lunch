@@ -73,7 +73,10 @@ class LineItemController extends Controller
         
         if($lineItem->isValid()) {
             $lineItem->save();
-            return redirect()->route('orgorder.index',['orgId'=>$orgOrder->organization()->id]);
+            return redirect()->route('orgorder.show',[
+                'orgId'=>$orgOrder->organization()->id,
+                'id'=>$lineItem->organization_order_id
+            ]);
         } else {
             return redirect()->route('lineitem.create',['id'=>$id])
                 ->withErrors($lineItem->getErrors())
