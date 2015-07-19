@@ -25,9 +25,13 @@
         <tr>
             <td>{{ $user_order->restaurant->name }}</td>
             <td>{{ $user_order->order }}</td>
-            <td>{{ $user_order->default == 1 ? "yes" : "no" }}
+            <td>
             @if ($user_order->default != 1)
-                <a href="/user-orders/{{ $user_order->id }}/default">Make Default</a>
+                <a href="/user-orders/{{ $user_order->id }}/default">
+                <img class="default unselected" src="/img/star.png" alt="DEFAULT"/>
+                </a>
+            @else
+                <img class="default" src="/img/star.png" alt="DEFAULT"/>
             @endif
             </td>
             <td>{{ $user_order->created_at }}</td>
