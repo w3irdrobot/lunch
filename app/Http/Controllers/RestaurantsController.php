@@ -47,10 +47,8 @@ class RestaurantsController extends Controller
      */
     public function create(Request $request)
     {
-        $restaurant = new \App\Restaurant();
-        
         return view('restaurants.form', [
-            'restaurant' => $restaurant
+            'restaurant' => new \App\Restaurant()
         ]);
     }
 

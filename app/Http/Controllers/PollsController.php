@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Restaurant;
+use App\Poll;
+use App\PollRestaurant;
 
 class PollsController extends Controller
 {
@@ -20,9 +22,9 @@ class PollsController extends Controller
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $orgId)
     {
-        $organization = \App\Organization::findOrFail($request->input('organization', 2));
+        $organization = \App\Organization::findOrFail($orgId);
         return view('polls.list', [
             'organization' => $organization,
         ]);
@@ -33,9 +35,13 @@ class PollsController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create($orgId)
     {
-        //
+        $poll = new \App\Poll();
+        $poll->organization_id = $orgId;
+        return view('polls.form', [
+            'poll' => $poll,
+        ]);
     }
 
     /**
@@ -44,9 +50,20 @@ class PollsController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$orgId)
     {
-        //
+        $poll = new \App\Poll();
+        $poll->organization_id = $orgId;
+        $poll->fill($request->input('Poll',[]));
+        
+        if($poll->isValid()) {
+            $poll->save();
+            return redirect()->route('poll.index',['orgId'=>$poll->organization_id]);
+        } else {
+            return redirect()->route('poll.create')
+                ->withErrors($poll->getErrors())
+                ->withInput();
+        }
     }
 
     /**
@@ -55,9 +72,17 @@ class PollsController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $pollResponse = $request->user()->pollResponses()->where('polls_restaurants.poll_id','=',$id)->first();
+        $poll = \App\Poll::findOrFail($id);
+        $pollRestaurants = PollRestaurant::where('poll_id','=',$id)->get();
+
+        return view('polls.view', [
+            'poll' => $poll,
+            'response' => $pollResponse,
+            'pollRestaurants' => $pollRestaurants,
+        ]);
     }
     
     public function addRestaurant($id) {
@@ -74,6 +99,13 @@ class PollsController extends Controller
         $restaurant = Restaurant::findOrFail($request->input('restaurant_id'));
         $poll->restaurants()->save($restaurant);
         
-        return redirect()->route('poll.index');
+        return redirect()->route('poll.index',['orgId'=>$poll->organization_id]);
+    }
+    
+    public function vote(Request $request, $id) {
+        $pollRestaurant = PollRestaurant::findOrFail($id);
+        $pollRestaurant->users()->save($request->user());
+        
+        return redirect()->route('poll.view',['id'=>$pollRestaurant->poll_id]);
     }
 }

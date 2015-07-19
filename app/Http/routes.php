@@ -19,9 +19,15 @@ Route::get('restaurant', ['uses' => 'RestaurantsController@index', 'as' => 'rest
 Route::get('restaurant/create',  ['uses' => 'RestaurantsController@create', 'as' => 'restaurant.create']);
 Route::post('restaurant',  ['uses' => 'RestaurantsController@store', 'as' => 'restaurant']);
 
-Route::get('poll', ['uses' => 'PollsController@index', 'as' => 'poll.index']);
+Route::get('organization/{orgId}/poll', ['uses' => 'PollsController@index', 'as' => 'poll.index']);
+Route::get('organization/{orgId}/poll/create', ['uses' => 'PollsController@create', 'as' => 'poll.create']);
+Route::post('organization/{orgId}/poll', ['uses' => 'PollsController@store', 'as' => 'poll.store']);
+
 Route::get('poll/{id}/restaurant/add', ['uses' => 'PollsController@addRestaurant', 'as' => 'poll.restaurantAdd']);
 Route::post('poll/{id}/restaurant/store', ['uses' => 'PollsController@storeRestaurant', 'as' => 'poll.restaurantAdd']);
+
+Route::get('poll/{id}', ['uses' => 'PollsController@show', 'as' => 'poll.view']);
+Route::get('poll/vote/{id}', ['uses' => 'PollsController@vote', 'as' => 'poll.vote']);
 
 Route::get('organization/{orgId}/restaurant/add/{id}',  ['uses' => 'OrganizationsController@addRestaurant', 'as' => 'organization.addRestaurant']);
 Route::get('organization/{orgId}/restaurant/remove/{id}',  ['uses' => 'OrganizationsController@removeRestaurant', 'as' => 'organization.removeRestaurant']);

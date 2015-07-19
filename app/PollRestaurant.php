@@ -24,11 +24,11 @@ class PollRestaurant extends Model {
     ];
 
     public function restaurants() {
-        return $this->belongsTo('App\Restaurants');
+        return $this->belongsTo('App\Restaurant','restaurant_id');
     }
     
     public function polls() {
-        return $this->belongsTo('App\Polls');
+        return $this->belongsTo('App\Poll','poll_id');
     }    
     
     public function users() {
