@@ -12,8 +12,9 @@
 	</div>
     
     <p class="p-desc">When should the votes be in by?</p>
+    
     <div class='input-group date'>
-        <input id="datepicker" type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" />
+        <input id="datepicker" type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" style="width: 100%;" />
         <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
         </span>
