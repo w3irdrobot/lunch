@@ -43,8 +43,9 @@ Route::post('organizations/{orgId}/restaurant',  ['uses' => 'RestaurantsControll
 Route::get('organizations/{orgId}/restaurant/add/{id}',  ['uses' => 'OrganizationsController@addRestaurant', 'as' => 'organization.addRestaurant']);
 Route::get('organizations/{orgId}/restaurant/remove/{id}',  ['uses' => 'OrganizationsController@removeRestaurant', 'as' => 'organization.removeRestaurant']);
 
-Route::get('user-order', ['uses' => 'UserOrdersController@index', 'as' => 'user_orders.index']);
-Route::post('user-order/{ordOrgId}/', ['uses' => 'UserOrdersController@create', 'as' => 'user_orders.create']);
+Route::get('user-orders', ['uses' => 'UserOrdersController@index', 'as' => 'user_orders.index']);
+Route::get('user-orders/create', ['uses' => 'UserOrdersController@create', 'as' => 'user_orders.create']);
+Route::post('user-orders', ['uses' => 'UserOrdersController@store', 'as' => 'user_orders.store']);
 
 Route::get('organizations/{orgId}/organizations-orders/{id}', ['uses' => 'OrganizationOrderController@show', 'as' => 'orgorder.show']);
 Route::get('organizations/{orgId}/organizations-orders/{id}/close', ['uses' => 'OrganizationOrderController@close', 'as' => 'orgorder.close']);
