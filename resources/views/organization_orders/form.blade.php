@@ -19,7 +19,7 @@
                     <div class='form-group'>
                         @if($organization->restaurants->isEmpty())
                         <h4> Oops! You need a resturant! </h4>                        
-                        <a href="/organizations/{{$organization->id}}/restaurant/create"> Add a resturant</a>
+                        <a href="/organizations/{{$organization->id}}/restaurant"> Add a resturant</a>
                         @else
                         <label>Restaurant</label>
                         <select name='restaurant_id' class='form-control'>
