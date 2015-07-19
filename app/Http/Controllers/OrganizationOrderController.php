@@ -51,7 +51,7 @@ class OrganizationOrderController extends Controller
     public function store(Request $request,$orgId) {
         $orgOrder = new OrganizationOrder();
         $orgOrder->fill($request->input('OrganizationOrder',[]));
-
+        $orgOrder->due_by = date("Y-m-d H:i:s", strtotime($orgOrder->due_by));
         $orgRestaurant = DB::select('select id from organizations_restaurants where organization_id=? and restaurant_id=? limit 1',
             [$orgId,$request->input('restaurant_id')]);
         
