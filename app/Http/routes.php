@@ -61,6 +61,4 @@ Route::post('organizations-orders/{id}/lineitem', ['uses' => 'LineItemController
 Route::get('line-item/{id}/update', ['uses' => 'LineItemController@update', 'as' => 'lineitem.update']);
 Route::post('line-item/{id}/update', ['uses' => 'LineItemController@save', 'as' => 'lineitem.save']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('', 'Auth\AuthController@getLogin');
