@@ -2,6 +2,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Watson\Validating\ValidatingTrait;
 
 /**
  * @property integer $id
@@ -13,19 +14,21 @@ use Illuminate\Database\Eloquent\Model;
  */
 
 class OrganizationOrder extends Model {
+    
+    use ValidatingTrait;
 
     protected $table = 'organization_orders';
 
     protected $fillable = ['organization_restaurant_id','due_by','closed_at'];
 
-    protected $validations = [
+    protected $rules = [
         'organization_restaurant_id' => 'exists:organizations_restaurants,id|integer|min:0|required',
         'due_by' => 'required|date',
         'closed_at' => 'date'
     ];
 
     public function userOrders() {
-        return $this->hasMany('App\LineItem','');
+        return $this->hasMany('App\LineItem');
     }
     
     public function restaurant() {
@@ -34,6 +37,18 @@ class OrganizationOrder extends Model {
             ->where('organization_orders.id','=',$this->id)
             ->select('restaurants.*')
             ->first();
+    }
+    
+    public function displayStatus() {
+        if($this->closed_at) {
+            return 'Complete';
+        } else {
+            return 'Open';
+        }
+    }
+    
+    public function lineItems() {
+        return $this->hasMany('App\LineItem','organization_order_id');
     }
 
 }
