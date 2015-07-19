@@ -10,6 +10,7 @@
 <table class='table table-striped'>
     <tr>
         <th>Date</th>
+        <th>Due By</th>
         <th>Restaurant</th>
         <th>Number of User Orders</th>
         <th>Status</th>
@@ -17,7 +18,8 @@
     </tr>
     @foreach ($organization->orders() as $orgOrder)
         <tr>
-            <td>{{ date('F j Y g:ia',strtotime($orgOrder->created_at)) }}</td>
+            <td>{{ date('F j Y',strtotime($orgOrder->created_at)) }}</td>
+            <td>{{ date('F j Y g:ia',strtotime($orgOrder->due_by)) }}</td>
             <td>{{ $orgOrder->restaurant()->name }}</td>
             <td>{{ $orgOrder->userOrders()->count() }}</td>
             <td>{{ $orgOrder->displayStatus() }}</td>
