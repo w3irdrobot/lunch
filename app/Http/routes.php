@@ -7,6 +7,8 @@ Route::get('organizations/{id}/users', ['uses' => 'OrganizationsController@users
 Route::post('organizations/{id}/invite', ['uses' => 'OrganizationsController@sendInvite', 'as' => 'organizationInvite']);
 Route::get('organizations/{id}', ['uses' => 'OrganizationsController@show', 'as' => 'organization.view']);
 
+Route::get('organization/{orgId}/orders/{id}', ['uses' => 'OrganizationOrderController@show', 'as' => 'organization.']);
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

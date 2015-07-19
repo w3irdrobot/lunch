@@ -14,14 +14,15 @@ class OrganizationOrderController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function show(Request $request, $orgId, $id)
     {
-        
+        $lineItems = LineItem::where('organization_order_id', $id)->get();
+        return view('organization_orders.show', ['lineItems' => $lineItems]);
     }
 }
