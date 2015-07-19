@@ -102,6 +102,9 @@ class OrganizationsController extends Controller
         if ($id == 0 && !$roles->isEmpty()) {
             $id = $roles[0]->organization_id;
         }
+        if($roles->isEmpty()) {
+            return redirect()->route('newOrganizationForm');
+        }
 
         $organization = Organization::find($id);
 

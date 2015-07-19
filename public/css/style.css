@@ -1,5 +1,7 @@
 body {
-    color: #333333
+    color: #333333;
+    height: 100%;
+    min-height: 100%;
 }
 
 
@@ -45,7 +47,9 @@ height: 3em;
   background-image: url("/img/bw-tiles.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 70em;
+  height: 100%;
+  min-height: 100%;
+  height: 800px;
   width: 100%;
   overflow: hidden;
   bottom: 0;
