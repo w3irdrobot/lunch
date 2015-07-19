@@ -6,8 +6,16 @@
     @if($errors->any())
     <h4>{{$errors->first()}}</h4>
     @endif
-    <label>Name</label>
-    <input type='text' name='Restaurant[name]' value="{{ $restaurant->name }}" />
-    <input type='submit' value='Save' />
+    <table class='table grid'>
+        <tr><th colspan='2'>Add Restaurant</th></tr>
+        <tr>
+            <td><label>Name</label></td>
+            <td><input type='text' name='Restaurant[name]' value="{{ $restaurant->name }}" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type='submit' value='Save' /></td>
+        </tr>
+    </table>
 </form>
 @endsection
