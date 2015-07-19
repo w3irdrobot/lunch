@@ -109,14 +109,7 @@ height: 3em;
     min-width: 200px;
     height: 45px;
     padding: 5px;
-}
-
-#main-content input {
-    color: #222;
-}
-
-#main-content select {
-    padding: 10px;
+    color: #333;
 }
 
 .login {
@@ -289,6 +282,8 @@ input, textarea, select {
 #main-content .panel-heading {
     background-color: #8B8EA7;
     color: white;
+    font-weight: bold;
+    font-size: 120%;
 }
 .error {
     color: red;
@@ -336,4 +331,11 @@ input, textarea, select {
     color: #fff;
 }
 
+.centerh1 {
+    font-size: 60px;
+    text-align: center; 
+}
 
+.center {
+    text-align: center; 
+}

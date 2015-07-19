@@ -4,7 +4,10 @@
 
 <a href='/organizations/{{ $orgId }}/order'>Back to Orders</a>
 
-<h3>Users Orders</h3>
+<h1 class='centerh1'>Users Orders</h1>
+<h3 class='center'>
+    {{ $orgOrder->restaurant()->name }} on {{date('F j, Y',strtotime($orgOrder->created_at))}}
+</h3>
 <table class='table table-striped'>
     <tr>
         <th>User</th>
@@ -32,7 +35,7 @@
                     <i class="fa fa-times-circle error"></i>
                 @endif
             </td>
-            <td>
+            <td style='text-align: right;'>
                 <a href='/line-item/{{$lineItem->id}}/update' class='btn btn-info'>Update</a>
             </td>
         </tr>

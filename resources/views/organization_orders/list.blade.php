@@ -1,44 +1,35 @@
 @extends('layouts.master')
 
 @section('content')
-<h1>Orders for {{ $organization->name }}</h1>
-<a href='/organizations/{{ $organization->id }}/order/create' class='btn btn-success btn-outline'><i class='fa fa-user-plus'></i> New Order</a>
-<a href='/organizations/{{ $organization->id }}' class='btn btn-success btn-outline'>Back to Dashboard</a>
-<br><br>
-<div class='row'>
-    <div class='col-sm-12'>
-        <div class='panel panel-default'>
-            <div class='panel-heading'>
-                Orders
-            </div>
-            <div class='panel-body'>
-
-            <table class='table'>
-                <tr>
-                    <th>Date</th>
-                    <th>Restaurant</th>
-                    <th>Number of Line Items</th>
-                    <th>Status</th>
-                    <th>Links</th>
-                </tr>
-                @foreach ($organization->orders() as $orgOrder)
-                    <tr>
-                        <td>{{ $orgOrder->created_at }}</td>
-                        <td>{{ $orgOrder->restaurant()->name }}</td>
-                        <td>{{ $orgOrder->userOrders()->count() }}</td>
-                        <td>{{ $orgOrder->displayStatus() }}</td>
-                        <td>
-                            <a href='/organizations/{{ $organization->id }}/organizations-orders/{{ $orgOrder->id }}'>View Order</a>
-                            @if (!$orgOrder->closed_at)
-                            <br>
-                            <a href='/organizations/{{ $organization->id }}/organizations-orders/{{$orgOrder->id}}/close'>Close Order</a>
-                            @endif
-                        </td>
-                    </tr>
-                @endforeach
-            </table>
-            </div>
-        </div>
-    </div>
+<h1 class='centerh1'>Orders for {{ $organization->name }}</h1>
+<div class='center'>
+    <a href='/organizations/{{ $organization->id }}/order/create' class='btn btn-success btn-outline'><i class='fa fa-user-plus'></i> New Order</a>
+    <a href='/organizations/{{ $organization->id }}' class='btn btn-success btn-outline'>Back to Dashboard</a>
 </div>
+<br>
+<table class='table table-striped'>
+    <tr>
+        <th>Date</th>
+        <th>Restaurant</th>
+        <th>Number of User Orders</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    @foreach ($organization->orders() as $orgOrder)
+        <tr>
+            <td>{{ date('F j Y g:ia',strtotime($orgOrder->created_at)) }}</td>
+            <td>{{ $orgOrder->restaurant()->name }}</td>
+            <td>{{ $orgOrder->userOrders()->count() }}</td>
+            <td>{{ $orgOrder->displayStatus() }}</td>
+            <td style='text-align: right;'>
+                @if (!$orgOrder->closed_at)
+                <a href='/organizations/{{ $organization->id }}/organizations-orders/{{$orgOrder->id}}/close' class='btn btn-info btn-sm'><i class='fa fa-times-circle'></i> Close Order</a>
+                @endif
+                
+                <a href='/organizations/{{ $organization->id }}/organizations-orders/{{ $orgOrder->id }}' class='btn btn-primary btn-sm'><i class='fa fa-list'></i> View User Orders</a>
+            </td>
+        </tr>
+    @endforeach
+</table>
+
 @endsection
