@@ -175,3 +175,20 @@ input, textarea, select {
   margin-left: 39% !important;
 }
 
+.nolog{
+	margin-right: 35%;
+	margin-left: 35%;
+	margin-top: 5%;
+}
+
+.model-creations {
+  width: 25em;
+  height: auto;
+  background-color: #FFFFFF;
+  margin-right: 39%;
+  margin-left: 39%;
+  margin-top: 3%;
+  border: black;
+  box-sizing: border-box;
+  border-width: medium;
+}
