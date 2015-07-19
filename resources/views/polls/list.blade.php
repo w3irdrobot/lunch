@@ -18,12 +18,15 @@
                     {{ $restaurant->name }} - {{ $restaurant->pollRestaurants($poll->id)->users()->count() }}<br>
                 @endforeach
                 @if ($poll->displayStatus() == 'Open')
-                <a href='/poll/{{$poll->id}}/restaurant/add'>Add Restaurant</a>
+                <a href='/polls/{{$poll->id}}/restaurant/add'>Add Restaurant</a>
                 @endif
             </td>
             <td>
-                <a href='/poll/{{$poll->id}}'>Vote and Results</a>
-                <a href='/poll/{{$poll->id}}/close'>Close Vote</a>
+                <a href='/polls/{{$poll->id}}'>Vote and Results</a>
+                @if (!$poll->closed_at)
+                <br>
+                <a href='/polls/{{$poll->id}}/close'>Close Vote</a>
+                @endif
             </td>
         </tr>
     @endforeach

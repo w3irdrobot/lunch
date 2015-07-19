@@ -108,4 +108,12 @@ class PollsController extends Controller
         
         return redirect()->route('poll.view',['id'=>$pollRestaurant->poll_id]);
     }
+    
+    public function close($id) {
+        $poll = \App\Poll::findOrFail($id);
+        $poll->closed_at = date('Y-m-d H:i:s');
+        $poll->save();
+        
+        return redirect()->route('poll.index',['orgId'=>$poll->organization_id]);
+    }
 }

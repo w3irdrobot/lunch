@@ -30,6 +30,7 @@ Route::post('polls/{id}/restaurant/store', ['uses' => 'PollsController@storeRest
 
 Route::get('polls/{id}', ['uses' => 'PollsController@show', 'as' => 'poll.view']);
 Route::get('polls/vote/{id}', ['uses' => 'PollsController@vote', 'as' => 'poll.vote']);
+Route::get('polls/{id}/close', ['uses' => 'PollsController@close', 'as' => 'poll.close']);
 
 Route::get('organizations/{orgId}/restaurant', ['uses' => 'RestaurantsController@index', 'as' => 'restaurant.index']);
 Route::get('organizations/{orgId}/restaurant/create',  ['uses' => 'RestaurantsController@create', 'as' => 'restaurant.create']);
