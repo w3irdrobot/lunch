@@ -2,7 +2,11 @@
 #page_header {
 width: 100%;
 color: #FFFFFF;
-background-color: #9295BF;
+background-color: #8B8EA7;
+background: -webkit-linear-gradient(#999CB8, #8B8EA7);
+background: -o-linear-gradient(#999CB8, #8B8EA7);
+background: -moz-linear-gradient(#999CB8, #8B8EA7);
+background: linear-gradient(#999CB8, #8B8EA7);
 position: relative;
 overflow: hidden;
 font-size: 3em;	
