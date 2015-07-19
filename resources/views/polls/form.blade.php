@@ -6,8 +6,23 @@
     @if($errors->any())
     <h4>{{$errors->first()}}</h4>
     @endif
-    <label>Votes Due By</label>
-    <input type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" />
-    <input type='submit' value='Save' />
+    
+    <div class="math">
+    	<h1>Poll Creation</h1>
+	</div>
+    
+    <p class="p-desc">When should the votes be in by?</p>
+    <div class='input-group date'>
+        <input id="datepicker" type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+    <script>
+	  $(function() {
+	    $( "#datepicker" ).datepicker();
+	  });
+    </script>
+    <input id="poll_save" type='submit' value='Save' />
 </form>
 @endsection
