@@ -17,12 +17,17 @@
                 </div>
                 <div class='panel-body'>
                     <div class='form-group'>
+                        @if($organization->restaurants->isEmpty())
+                        <h4> Oops! You need a resturant! </h4>                        
+                        <a href="/organizations/{{$organization->id}}/restaurant/create"> Add a resturant</a>
+                        @else
                         <label>Restaurant</label>
                         <select name='restaurant_id' class='form-control'>
                             @foreach ($organization->restaurants as $restaurant)
                                 <option value='{{$restaurant->id}}'>{{$restaurant->name}}</option>
                             @endforeach
                         </select>
+                        @endif
                     </div>
                     <div class='form-group'>
                         <label>Due By</label>
