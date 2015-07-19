@@ -32,12 +32,14 @@ height: 3.5em;
 	}
 
 #content {
-  background-image: url("http://lunch.app/img/bg-image.jpg");
+  background-image: url("http://lunch.app/img/bw-tiles.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 50em;
+  height: 70em;
   width: 110%;
   overflow: hidden;
+  bottom: 0;
+  /* position: absolute; */
 }
 #content h1 {
 	margin:0 0 16px;
@@ -64,10 +66,88 @@ height: 3.5em;
 	text-decoration:none;
 }
 
-.login{
-  width: 15em;
+.login {
+  width: 25em;
+  height: auto;
   background-color: #FFFFFF;
   float: right;
   margin-right: 20%;
-  margin-top: 10%;
+  margin-top: -20%;
+  border: black;
+  box-sizing: border-box;
+  border-width: medium;
 }
+
+.registration {
+  width: 25em;
+  height: auto;
+  background-color: #FFFFFF;
+  float: right;
+  margin-right: 20%;
+  margin-top: -20%;
+  border: black;
+  box-sizing: border-box;
+  border-width: medium;
+}
+
+
+input, textarea, select {
+	font:100% arial,sans-serif;
+	vertical-align:middle;
+	color:#000;
+	overflow: auto;
+}
+
+#frontpage {
+  width: 40em;
+  height: auto;
+  margin-left: 10%;
+  margin-top: 10%;
+ }
+
+#frontpage p{
+	font-size: 4em;
+	color: #FFFFFF !important;
+}
+
+#login-submit{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: medium;
+  background-color: #EA5959;
+  border: none;
+  font-family: 'Orator Std';
+  color: #FFFFFF;
+  margin-bottom: 1em;
+}
+
+#register-submit{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: medium;
+  background-color: #EA5959;
+  border: none;
+  font-family: 'Orator Std';
+  color: #FFFFFF;
+  margin-bottom: 1em;
+}
+
+.form-group input{
+	width: 100%; 
+}
+
+.form-group{
+	width: 80%;
+	margin-right: 10%;
+	margin-left: 10% 
+}
+
+.gooseberry{
+	width: 50%;
+	text-align: center;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 2em;
+}
+
