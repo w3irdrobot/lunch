@@ -2,13 +2,14 @@
 
 @section('content')
 
-<a href='/organizations/{{ $orgId }}/order'>Back to Orders</a>
-
 <h1 class='centerh1'>Users Orders</h1>
 <h3 class='center'>
     {{ $orgOrder->restaurant()->name }} on {{date('F j, Y',strtotime($orgOrder->created_at))}}
 </h3>
-<table class='table table-striped'>
+<div class='center'>
+    <a href='/organizations/{{ $orgId }}/order' class='btn btn-primary btn-outline'>Back to Orders</a>
+</div>
+<table class='table table-striped' style='margin-top: 5px;'>
     <tr>
         <th>User</th>
         <th>Order</th>

@@ -2,41 +2,44 @@
 
 @if (Auth::check())
 
-   @section('content')
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@section('content')
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
-    <div class="title" style="margin-right: 32%; text-align: center;">
-        <h1> Create Organization </h1>
-        </br>
-   </div>
-
-    <div class="model-creations">
-        <form action="{{ route('createOrganization') }}" method="POST" style="padding: 5px;">
+<h1 class='centerh1'> Create Organization </h1>
+<div class='panel panel-default'>
+    <div class='panel-heading'>
+        Organization Details
+    </div>
+    <div class='panel-body'>
+        <form action="{{ route('createOrganization') }}" method="POST">
             {!! csrf_field() !!}
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" name="name">
+                <input class='form-control' type="text" name="name">
             </div>
-            <input id="register-submit" type="submit" value="Create">
+            <div class="form-group">
+                <input  type="submit" value="Create Organization" class='form-control btn btn-success'>
+            </div>
         </form>
     </div>
-    @endsection
+</div>
+@endsection
 
 @else
-    
-    @section('content')
-    <div class="nolog">
-        <iframe src="//giphy.com/embed/1456BVmlt3zRa8" width="480" height="480" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    </div>
-    @endsection
-    
+
+@section('content')
+<div class="nolog">
+    <iframe src="//giphy.com/embed/1456BVmlt3zRa8" width="480" height="480" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div>
+@endsection
+
 @endif
 

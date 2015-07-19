@@ -4,7 +4,7 @@
 <h1 class='centerh1'>Orders for {{ $organization->name }}</h1>
 <div class='center'>
     <a href='/organizations/{{ $organization->id }}/order/create' class='btn btn-success btn-outline'><i class='fa fa-user-plus'></i> New Order</a>
-    <a href='/organizations/{{ $organization->id }}' class='btn btn-success btn-outline'>Back to Dashboard</a>
+    <a href='/organizations/{{ $organization->id }}' class='btn btn-primary btn-outline'>Back to Dashboard</a>
 </div>
 <br>
 <table class='table table-striped'>
