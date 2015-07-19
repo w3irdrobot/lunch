@@ -15,7 +15,7 @@
             <td>{{ $poll->displayStatus() }}</td>
             <td>
                 @foreach ($poll->restaurants as $restaurant)
-                    {{ $restaurant->name }} - {{ $restaurant->pollRestaurants($poll->id)->count() }}<br>
+                    {{ $restaurant->name }} - {{ $restaurant->pollRestaurants($poll->id)->users()->count() }}<br>
                 @endforeach
                 @if ($poll->displayStatus() == 'Open')
                 <a href='/poll/{{$poll->id}}/restaurant/add'>Add Restaurant</a>
