@@ -31,6 +31,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->firstName . " " . $this->lastName;
     }
     
+    public function getEmail() {
+        return $this->email;
+    }
+    
     public function pollResponses() {
         return $this->belongsToMany('App\PollRestaurant','polls_responses');
     }

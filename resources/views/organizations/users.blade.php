@@ -2,7 +2,7 @@
 
 @section('content')
 <div class='row'>
-    <div class='col-sm-6'>
+    <div class='col-sm-4'>
         <div class='panel panel-default'>
             <div class='panel-heading'>
                 Add user to organization
@@ -16,11 +16,9 @@
                 </form>
             </div>
         </div>
-    </div>
-</div>    
+    </div>  
 
-<div class='row'>
-    <div class='col-sm-6'>
+    <div class='col-sm-8'>
         <div class='panel panel-default'>
             <div class='panel-heading'>
                 Users
@@ -28,7 +26,10 @@
             <div class='panel-body'>
                 <table class="table grid skinny">
                     @foreach ($organization->users as $user)
-                    <tr><td>{{ $user->getFullName() }}</td></tr>
+                    <tr>
+                        <td>{{ $user->getFullName() }}</td>
+                        <td>{{ $user->getEmail() }}</td>
+                    </tr>
                     @endforeach
                 </table>
             </div>
