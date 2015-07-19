@@ -14,16 +14,13 @@
                     Add Restaurant
                 </div>
                 <div class='panel-body'>                    
-                    <table class='table grid'>
-                        <tr>
-                            <td><label>Name</label></td>
-                            <td><input type='text' name='Restaurant[name]' value="{{ $restaurant->name }}" /></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type='submit' value='Save' class='btn btn-success btn-outline'/></td>
-                        </tr>
-                    </table>
+                    <div class='form-group'>
+                        <label>Name</label>
+                        <input type='text' name='Restaurant[name]' class='form-control' value="{{ $restaurant->name }}" />
+                    </div>
+                    <div class='form-group'>
+                        <input type='submit' value='Save' class='form-control btn btn-success btn-outline'/>
+                    </div>
                 </div>
             </div>
         </form>
