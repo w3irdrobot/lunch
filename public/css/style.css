@@ -207,6 +207,7 @@ input, textarea, select {
   height: auto;
   background-color: #FFFFFF;
   border: black;
+  color: #000;
   box-sizing: border-box;
   border-width: medium;
   margin-left: 38%;
