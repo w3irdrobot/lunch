@@ -98,37 +98,6 @@ height: 3em;
     filter: grayscale(100%);
 }
 
-#main-content table.grid {
-    margin: 0 auto;
-    margin-top: 25px;
-    width: 100%;
-    border-collapse: collapse;
-    color: #999;
-    box-shadow: 3px 3px 3px #777;
-}
-
-#main-content table.grid th {
-    background: #CCC;
-    background: -webkit-linear-gradient(#DDD, #CCC);
-    background: -o-linear-gradient(#DDD, #CCC);
-    background: -moz-linear-gradient(#DDD, #CCC);
-    background: linear-gradient(#DDD, #CCC); 
-    color: #444;
-}
-
-#main-content table.grid tr {
-    background: #F1F1F1;
-    background: -webkit-linear-gradient(#F1F1F1, #EEE);
-    background: -o-linear-gradient(#F1F1F1, #EEE);
-    background: -moz-linear-gradient(#F1F1F1, #EEE);
-    background: linear-gradient(#F1F1F1, #EEE);
-}
-
-#main-content .skinny {
-    margin: 0;
-    max-width: 450px;
-}
-
 #main-content .form-left {
     width: 25%;
 }
