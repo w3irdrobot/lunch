@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+
+<h1 class='centerh1'>Organization Restaurants</h1>
+
 <div class='row'>
     <div class='col-sm-3'></div>
     <div class='col-sm-6'>
@@ -13,13 +16,13 @@
                 <div class='panel-heading'>
                     Add Restaurant
                 </div>
-                <div class='panel-body'>                    
+                <div class='panel-body'>
                     <div class='form-group'>
                         <label>Name</label>
-                        <input type='text' name='Restaurant[name]' class='form-control' value="{{ $restaurant->name }}" />
+                        <input class='form-control' type='text' name='Restaurant[name]' value="{{ $restaurant->name }}" placeholder="McDonalds" />
                     </div>
                     <div class='form-group'>
-                        <input type='submit' value='Save' class='form-control btn btn-success btn-outline'/>
+                        <input type='submit' value='Save' class='btn btn-success form-control'/></td>
                     </div>
                 </div>
             </div>
