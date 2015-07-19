@@ -25,7 +25,7 @@
                 @if (!$orgOrder->closed_at)
                 <a href='/organizations/{{ $organization->id }}/organizations-orders/{{$orgOrder->id}}/close' class='btn btn-info btn-sm'><i class='fa fa-times-circle'></i> Close Order</a>
                 @endif
-                
+
                 <a href='/organizations/{{ $organization->id }}/organizations-orders/{{ $orgOrder->id }}' class='btn btn-primary btn-sm'><i class='fa fa-list'></i> View User Orders</a>
             </td>
         </tr>
