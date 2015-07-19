@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<h1 class="centerh1">New Order</h1>
 <div class='row'>
     <div class='col-sm-3'></div>
     <div class='col-sm-6'>
@@ -12,7 +13,7 @@
 
             <div class='panel panel-default'>
                 <div class='panel-heading'>
-                    Add Restaurant
+                    Order Details
                 </div>
                 <div class='panel-body'>
                     <div class='form-group'>
@@ -24,8 +25,9 @@
                         </select>
                     </div>
                     <div class='form-group'>
+                        <label>Due By</label>
                         <div class='input-group date'>
-                            <input id="datepicker" class='form-control' type='text' name='OrganizationOrder[due_by]' value="{{ $organizationOrder->due_by }}" style="width: 100%;" />
+                            <input id="datepicker" class='form-control' type='text' name='OrganizationOrder[due_by]' value="{{ $organizationOrder->due_by }}" style="width: 100%;" placeholder="Please select a date and time."/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -75,7 +77,7 @@
                     });
                 </script>
                     <div class='form-group'>
-                        <td><input type='submit' class='form-control btn btn-success btn-outline' value='Save' /></input</td>
+                        <td><input type='submit' class='form-control btn btn-success' value='Save' /></input</td>
                     </div>
                 </div>
             </div>

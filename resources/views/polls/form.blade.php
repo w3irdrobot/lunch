@@ -10,17 +10,18 @@
         <h4>{{$errors->first()}}</h4>
         @endif
 
-        <h1>Poll Creation</h1>
+        <h1 class="centerh1">Poll Creation</h1>
                 <div class='panel panel-default'>
                     <div class='panel-heading'>
                         Add New Poll
                     </div>
-                    <div class='panel-body'>    
-                    <p class="p-desc">When should the votes be in by?</p>
+                    <div class='panel-body'>
+                    
                     
                     <div class="form-group">
+                    <label>When should the votes be in by?</label>
                     <div class='input-group date'>
-                        <input id="datepicker" class='form-control' type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" style="width: 100%;" />
+                        <input id="datepicker" class='form-control' type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" style="width: 100%;" placeholder="Please select a date and time." />
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -70,7 +71,7 @@
                     });
                 </script>
                 <div class="form-group">
-                    <input id="poll_save" type='submit' class='form-conrol btn btn-success btn-outline' value='Save' />
+                    <input id="poll_save" type='submit' class='form-conrol btn btn-success' value='Save' />
                 </div>
             </div>
         </div>
