@@ -2,14 +2,7 @@
 
 @if (Auth::check())
 
-    @section('content')
-    <div class="nolog">
-        <iframe src="//giphy.com/embed/1456BVmlt3zRa8" width="480" height="480" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    </div>
-    @endsection
-
-@else
-    @section('content')
+   @section('content')
     @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
@@ -36,5 +29,14 @@
         </form>
     </div>
     @endsection
+
+@else
+    
+    @section('content')
+    <div class="nolog">
+        <iframe src="//giphy.com/embed/1456BVmlt3zRa8" width="480" height="480" frameBorder="0" style="max-width: 100%" class="giphy-embed" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </div>
+    @endsection
+    
 @endif
 
