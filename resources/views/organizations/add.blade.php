@@ -11,11 +11,14 @@
     </div>
 @endif
 
-<form action="{{ route('createOrganization') }}" method="POST">
-    {!! csrf_field() !!}
-
-    <label for="name">Name</label>
-    <input type="text" name="name">
-    <input type="submit" value="Create">
-</form>
+<div class="model-creations">
+    <form action="{{ route('createOrganization') }}" method="POST">
+        {!! csrf_field() !!}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name">
+        </div>
+        <input type="submit" value="Create">
+    </form>
+</div>
 @endsection
