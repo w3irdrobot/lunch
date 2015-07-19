@@ -18,7 +18,7 @@
         <link rel="stylesheet" media="all" type="text/css" href="/css/jquery-ui-timepicker-addon.css" />
         <link rel='stylesheet' href='/css/style.css' >
     </head>
-    <body>
+    <body class='inside'>
         <div class='pull-right toprightmenu'>
             <a href="/organizations">Home</a> |
             <a href="/auth/logout">Logout</a>
