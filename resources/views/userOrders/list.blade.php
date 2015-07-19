@@ -1,24 +1,19 @@
 @extends('layouts.master')
 
-<table class='table' border='0'>
-    <tr>
-        <td><a href="user-orders/create">Create New Order</a></td>
-        <td>
-            <form action='/user-orders' method='get'>
-                <select name='restaurant'>
-                    <option value="">All</option>
-                    @foreach ($restaurants as $restaurant)
-                        <option value='{{ $restaurant->id }}'
-                                {{ $selected_restaurant == $restaurant->id ? "selected" : "" }}>{{ $restaurant->name }}</option>
-                    @endforeach
-                </select>
-                <input type='submit' name='submit' value='submit'/>
-            </form>
-        </td>
-    </tr>
-</table>
+@section('content')
+<a href="user-orders/create">Create New Order</a>
+<form action='/user-orders' method='get'>
+    <select name='restaurant'>
+        <option value="">All</option>
+        @foreach ($restaurants as $restaurant)
+            <option value='{{ $restaurant->id }}'
+                    {{ $selected_restaurant == $restaurant->id ? "selected" : "" }}>{{ $restaurant->name }}</option>
+        @endforeach
+    </select>
+    <input type='submit' name='submit' value='submit'/>
+</form>
 
-<table class='table' border='1'>
+<table class='table grid' border='1'>
     <tr>
         <th>Restaurant</th>
         <th>Order</th>
@@ -39,3 +34,4 @@
         </tr>
     @endforeach
 </table>
+@endsection

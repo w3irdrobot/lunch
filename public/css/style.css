@@ -36,14 +36,22 @@ height: 3.5em;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 70em;
-  width: 110%;
+  width: 100%;
   overflow: hidden;
   bottom: 0;
+  color: #fff;
   /* position: absolute; */
 }
+
+#content_text {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 #content h1 {
 	margin:0 0 16px;
-	color:#000;
+	color: #fff;
 	font:26px/27px 'Rockwell W01', Arial, Helvetica, sans-serif;
 }
 #content p {
@@ -66,13 +74,69 @@ height: 3.5em;
 	text-decoration:none;
 }
 
+#content table.grid {
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 100%;
+    border-collapse: collapse;
+    color: #999;
+}
+
+#content table.grid th {
+    background: #CCC;
+    background: -webkit-linear-gradient(#DDD, #CCC);
+    background: -o-linear-gradient(#DDD, #CCC);
+    background: -moz-linear-gradient(#DDD, #CCC);
+    background: linear-gradient(#DDD, #CCC); 
+    color: #444;
+}
+
+#content table.grid tr {
+    background: #F1F1F1;
+    background: -webkit-linear-gradient(#F1F1F1, #EEE);
+    background: -o-linear-gradient(#F1F1F1, #EEE);
+    background: -moz-linear-gradient(#F1F1F1, #EEE);
+    background: linear-gradient(#F1F1F1, #EEE);
+}
+
+#content .form-left {
+    width: 25%;
+}
+#content .form-right {
+    width: 75%;
+}
+
+#content input[type=text] {
+    width: 20%;
+    min-width: 200px;
+    height: 45px;
+    padding: 5px;
+}
+
+#content input {
+    color: #222;
+}
+
+#content .default-select {
+    
+}
+
+#content .default {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);    
+}
+
+#content select {
+    padding: 10px;
+}
+
 .login {
   width: 25em;
   height: auto;
   background-color: #FFFFFF;
   float: right;
-  margin-right: 20%;
-  margin-top: -20%;
+  margin-right: 5%;
+  margin-top: -25%;
   border: black;
   box-sizing: border-box;
   border-width: medium;

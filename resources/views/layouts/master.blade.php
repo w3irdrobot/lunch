@@ -33,14 +33,16 @@
     </div><!-- end page_header -->
 
     <div id="content">
-		
-  	@if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
+        <div id="content_text">
+            
+            @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+        @yield('content_text')
+        @yield('content')
         </div>
-    @endif
-    @yield('content')
-
     </div><!-- end content -->
 
     <div class="footer">
