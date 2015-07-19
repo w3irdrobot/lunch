@@ -32,7 +32,7 @@ height: 3.5em;
 	}
 
 #content {
-  background-image: url("http://lunch.app/img/bw-tiles.jpg");
+  background-image: url("/img/bw-tiles.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   height: 70em;
