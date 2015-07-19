@@ -156,7 +156,7 @@ height: 3em;
   background-color: #FFFFFF;
   float: right;
   margin-right: 5%;
-  margin-top: -25%;
+  margin-top: -15%;
   border: black;
   box-sizing: border-box;
   border-width: medium;
@@ -365,4 +365,38 @@ input, textarea, select {
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
     color: #fff;
+}
+
+.math {
+   font-family: 'Courgette', cursive;
+   color: #2F2B29;
+   text-align: center;
+}
+
+.math h1{
+  font-size: 6em;
+  font-weight: 600;
+}
+
+.p-desc{
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 2em;
+  color: #000;
+}
+
+#poll_save {
+  margin-top: 4%;
+  width: 20%;
+  color: #FFFFFF;
+  background-color: #EA5959;
+  margin-left: 38%;
+  margin-right: 38%;
+  height: 2em;
+}
+
+.input-group{
+  width: 20%;
+  margin-left: 38%;
+  margin-right: 38%;
 }
