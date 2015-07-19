@@ -32,7 +32,7 @@
       
     </div><!-- end page_header -->
 
-    <div id="main-content">
+    <div id="content">
 		
   	@if (session('status'))
         <div class="alert alert-success">

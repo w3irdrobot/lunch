@@ -32,7 +32,7 @@
       
     </div><!-- end page_header -->
 
-    <div id="content">
+    <div id="main-content">
         <div id="content_text">
             
             @if (session('status'))

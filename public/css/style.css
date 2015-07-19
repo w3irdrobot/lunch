@@ -40,7 +40,6 @@ height: 3.5em;
   overflow: hidden;
   bottom: 0;
   color: #fff;
-  /* position: absolute; */
 }
 
 #content_text {
@@ -266,4 +265,14 @@ input, textarea, select {
   border: black;
   box-sizing: border-box;
   border-width: medium;
+}
+
+#main-content {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 70em;
+  width: 100%;
+  overflow: hidden;
+  bottom: 0;
+  color: #fff;
 }
