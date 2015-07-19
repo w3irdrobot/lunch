@@ -40,24 +40,10 @@
             @endif
             @yield('content')
 
-        </div><!-- end container -->
+        </div><!-- end content -->
 
-
-    </div><!-- end page_header -->
-
-    <div id="main-content">
-
-        @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
+        <div class="footer">
         </div>
-        @endif
-        @yield('content')
 
-    </div><!-- end content -->
-
-    <div class="footer">
-    </div>
-
-</body>
+    </body>
 </html>

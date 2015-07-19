@@ -1,3 +1,7 @@
+body {
+    color: #333333
+}
+
 
 #page_header {
 width: 100%;
@@ -50,15 +54,18 @@ height: 3.5em;
     width: 90%;
     margin: 0 auto;
     padding: 20px;
-    max-width: 750px;
     color: #000;
 }
 
-#main-content h1 {
-	margin:0 0 16px;
-	color: #fff;
-	font:26px/27px 'Rockwell W01', Arial, Helvetica, sans-serif;
+#main-content h1, #main-content h2, #main-content h3, #main-content h4, #main-content h5 {
+    color: #333333;
+    font-family: 'Courgette', cursive;
 }
+#main-content h1 {
+    margin:0 0 16px;
+    font-size: 26px/27px;
+}
+
 #main-content p {
 	margin:0 0 4px;
 	margin: 15px 0px !important;
@@ -271,11 +278,11 @@ input, textarea, select {
 #main-content {
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 70em;
   width: 100%;
   overflow: hidden;
   bottom: 0;
-  color: #fff;
+  color: #333;
+  padding: 20px 15px;
 }
 .toprightmenu {
     margin-bottom: -40px; position: relative; z-index: 5; padding: 10px;
@@ -291,19 +298,69 @@ input, textarea, select {
     color: #ccc;
     text-decoration: none;
 }
-.orglist .panel-heading {
+#main-content .orglist .panel-heading {
     font-weight: bold;
+    background-color: #aaa;
 }
-.orglist ul {
+.panel-body ul {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
 }
-.orglist ul li {
+.panel-body ul li {
     margin: 0px;
     padding: 0px;
 }
-.orglist ul li a {
+#main-content .orglist .panel-body ul li a {
     width: 100%;
     margin: 2px 0px;
+}
+#main-content .panel-heading {
+    background-color: #8B8EA7;
+    color: white;
+}
+.error {
+    color: red;
+}
+.success {
+    color: #5cb85c;
+}
+.restaurant {
+    color: #333;
+}
+.date {
+    color: #888;
+}
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
 }

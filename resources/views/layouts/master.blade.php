@@ -2,13 +2,14 @@
 <html>
     <head>
         <title>Lunch Run</title>
-        <link rel='stylesheet' href='/css/style.css' >
         <link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <link rel='stylesheet' href='/css/style.css' >
     </head>
     <body>
         <div class='pull-right toprightmenu'>
@@ -34,19 +35,20 @@
 
 
         </div><!-- end page_header -->
-
-        <div id="main-content">
-            <div id="content_text">
-
-                @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-                @endif
-                @yield('content_text')
+        
+        @if (session('status'))
+        <div class='container'>
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        </div>
+        @endif
+        
+        <div class='container'>
+            <div id="main-content">
                 @yield('content')
             </div>
-        </div><!-- end content -->
+        </div>
 
         <div class="footer">
         </div>
