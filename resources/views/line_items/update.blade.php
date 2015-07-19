@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<form action='/line-item/{{$lineItem->id}}/update' method='POST' style='background-color: white;'>
+<form class='form' action='/line-item/{{$lineItem->id}}/update' method='POST' style='background-color: white;'>
     {!! csrf_field() !!}
     @if($errors->any())
     <h4>{{$errors->first()}}</h4>

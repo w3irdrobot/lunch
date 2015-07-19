@@ -11,7 +11,7 @@
                 <form action="{{ route('organizationInvite', ['id' => $organization->id]) }}" method="POST">
                     {!! csrf_field() !!}
 
-                    <input type="email" class='form-control' name="email"><br>
+                    <input type="email" class='form-control' name="email" placeholder='Email Address'><br>
                     <input type="submit" class='btn btn-success btn-outline' value="Add">
                 </form>
             </div>
