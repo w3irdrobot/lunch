@@ -70,4 +70,21 @@ class OrganizationsController extends Controller
 
         return redirect()->route('restaurant.index');
     }
+
+    public function add() {
+        return view('organizations.add');
+    }
+
+    public function create(Request $request) {
+        $organization = Organization::create(['name' => $request->input('name')]);
+
+        if ($organization->isValid()) {
+            return redirect()->route('organizationUsers', [$organization->id]);
+        }
+
+        return redirect()
+            ->route('newOrganizationForm')
+            ->withInput()
+            ->withErrors($organization->getErrors());
+    }
 }

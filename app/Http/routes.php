@@ -1,5 +1,8 @@
 <?php
 
+Route::get('organizations/add', ['uses' => 'OrganizationsController@add', 'as' => 'newOrganizationForm']);
+Route::post('organizations', ['uses' => 'OrganizationsController@create', 'as' => 'createOrganization']);
+
 Route::get('organizations/{id}/users', ['uses' => 'OrganizationsController@users', 'as' => 'organizationUsers']);
 Route::post('organizations/{id}/invite', ['uses' => 'OrganizationsController@sendInvite', 'as' => 'organizationInvite']);
 

@@ -2,28 +2,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Watson\Validating\ValidatingTrait;
 
 /**
  * @property integer $id
  * @property string $name
- * @property string $city
- * @property string $state
- * @property string $country
  * @property string $created_at
  * @property string $updated_at
  */
 
 class Organization extends Model {
 
+    use ValidatingTrait;
+
     protected $table = 'organizations';
 
-    protected $fillable = ['name', 'city', 'state', 'country'];
+    protected $fillable = ['name'];
 
-    protected $validations = [
-        'name' => 'max:255|string',
-        'city' => 'max:255|string',
-        'state' => 'max:255|string',
-        'country' => 'max:255|string'
+    protected $rules = [
+        'name' => 'required|max:255|string'
     ];
 
     public function roles() {
@@ -37,7 +34,7 @@ class Organization extends Model {
     public function polls() {
         return $this->hasMany('App\Poll');
     }
-    
+
     public function restaurants() {
         return $this->belongsToMany('App\Restaurant','organizations_restaurants');
     }
