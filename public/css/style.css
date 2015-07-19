@@ -47,6 +47,7 @@ height: 3.5em;
     width: 90%;
     margin: 0 auto;
     padding: 20px;
+    max-width: 750px;
 }
 
 #content h1 {
@@ -80,6 +81,7 @@ height: 3.5em;
     width: 100%;
     border-collapse: collapse;
     color: #999;
+    box-shadow: 3px 3px 3px #000;
 }
 
 #content table.grid th {
@@ -97,6 +99,11 @@ height: 3.5em;
     background: -o-linear-gradient(#F1F1F1, #EEE);
     background: -moz-linear-gradient(#F1F1F1, #EEE);
     background: linear-gradient(#F1F1F1, #EEE);
+}
+
+#content .skinny {
+    margin: 0;
+    max-width: 450px;
 }
 
 #content .form-left {

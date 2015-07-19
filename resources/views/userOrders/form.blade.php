@@ -6,7 +6,8 @@
     @if($errors->any())
     <h4>{{$errors->first()}}</h4>
     @endif
-    <table class='table'>
+    <table class='table grid'>
+        <tr><th colspan="2">Add Order</th></tr>
         <tr>
             <td class='form-left'><label>Choose Restaurant</label></td>
             <td class='form-right'><select name='UserOrder[restaurant_id]'>
