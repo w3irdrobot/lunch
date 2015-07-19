@@ -1,5 +1,8 @@
 <?php
 
+Route::get('slack/outgoing-vote/{id}', ['uses' => 'SlackController@outgoingVote']);
+Route::post('slack/incoming-vote', ['uses' => 'SlackController@incomingVote']);
+
 Route::get('organizations/add', ['uses' => 'OrganizationsController@add', 'as' => 'newOrganizationForm']);
 Route::post('organizations', ['uses' => 'OrganizationsController@create', 'as' => 'createOrganization']);
 

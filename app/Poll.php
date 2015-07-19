@@ -14,7 +14,7 @@ use Watson\Validating\ValidatingTrait;
  */
 
 class Poll extends Model {
-    
+
     use ValidatingTrait;
 
     protected $table = 'polls';
@@ -28,11 +28,11 @@ class Poll extends Model {
     ];
 
     public function organizations() {
-        return $this->belongsTo('App\Organization','organization_id');
+        return $this->belongsTo('App\Organization', 'organization_id');
     }
-    
+
     public function restaurants() {
-        return $this->belongsToMany('App\Restaurant','polls_restaurants');
+        return $this->belongsToMany('App\Restaurant', 'polls_restaurants');
     }
 
     public function displayStatus() {
