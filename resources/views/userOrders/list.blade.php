@@ -1,6 +1,23 @@
 @extends('layouts.master')
 
-<a href="user-orders/create">Create New Order</a>
+<table class='table' border='0'>
+    <tr>
+        <td><a href="user-orders/create">Create New Order</a></td>
+        <td>
+            <form action='/user-orders' method='get'>
+                <select name='restaurant'>
+                    <option value="">All</option>
+                    @foreach ($restaurants as $restaurant)
+                        <option value='{{ $restaurant->id }}'
+                                {{ $selected_restaurant == $restaurant->id ? "selected" : "" }}>{{ $restaurant->name }}</option>
+                    @endforeach
+                </select>
+                <input type='submit' name='submit' value='submit'/>
+            </form>
+        </td>
+    </tr>
+</table>
+
 <table class='table' border='1'>
     <tr>
         <th>Restaurant</th>
@@ -15,7 +32,7 @@
             <td>{{ $user_order->order }}</td>
             <td>{{ $user_order->default == 1 ? "yes" : "no" }}
             @if ($user_order->default != 1)
-                <a href="">Make Default</a>
+                <a href="/user-orders/{{ $user_order->id }}/default">Make Default</a>
             @endif
             </td>
             <td>{{ $user_order->created_at }}</td>

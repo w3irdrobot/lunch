@@ -46,6 +46,7 @@ Route::get('organizations/{orgId}/restaurant/remove/{id}',  ['uses' => 'Organiza
 Route::get('user-orders', ['uses' => 'UserOrdersController@index', 'as' => 'user_orders.index']);
 Route::get('user-orders/create', ['uses' => 'UserOrdersController@create', 'as' => 'user_orders.create']);
 Route::post('user-orders', ['uses' => 'UserOrdersController@store', 'as' => 'user_orders.store']);
+Route::get('user-orders/{id}/default', ['uses' => 'UserOrdersController@makeDefault', 'as' => 'user_orders.makeDefault']);
 
 Route::get('organizations/{orgId}/organizations-orders/{id}', ['uses' => 'OrganizationOrderController@show', 'as' => 'orgorder.show']);
 Route::get('organizations/{orgId}/organizations-orders/{id}/close', ['uses' => 'OrganizationOrderController@close', 'as' => 'orgorder.close']);

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-<form action='' method='POST'>
+<form action='/user-orders' method='POST'>
     {!! csrf_field() !!}
     @if($errors->any())
     <h4>{{$errors->first()}}</h4>

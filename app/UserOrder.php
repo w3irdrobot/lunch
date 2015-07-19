@@ -2,11 +2,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Watson\Validating\ValidatingTrait;
 
 /**
  * @property integer $id
  * @property integer $user_id
- * @property integer $order_organization_id
  * @property integer $restaurant_id
  * @property string $default
  * @property string $order
@@ -16,13 +16,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserOrder extends Model {
 
+    use ValidatingTrait;
+    
     protected $table = 'user_orders';
 
-    protected $fillable = ['user_id', 'order_organization_id', 'restaurant_id', 'default', 'order'];
+    protected $fillable = ['user_id', 'restaurant_id', 'default', 'order'];
 
-    protected $validations = [
+    protected $rules = [
         'user_id' => 'exists:users,id|integer|min:0|required',
-        'order_organization_id' => 'exists:orders_organizations,id|integer|min:0|required',
         'restaurant_id' => 'integer|min:0|required',
         'default' => 'integer|required',
         'order' => 'string'
