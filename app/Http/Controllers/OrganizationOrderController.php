@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\UserOrders;
+use App\OrganizationOrder;
 
-class UserOrdersController extends Controller
+class OrganizationOrderController extends Controller
 {
     public function __construct()
     {
@@ -22,9 +22,6 @@ class UserOrdersController extends Controller
      */
     public function index(Request $request)
     {
-        $user_order = \App\UserOrder::findOrFail($request->input('user_order', 2));
-        return view('userOrders.list', [
-            'user_order' => $user_order,
-        ]);        
+        
     }
 }
