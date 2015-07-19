@@ -31,7 +31,7 @@ height: 3.5em;
 	top: 0px;
 	}
 
-#main-content {
+#content {
   background-image: url("/img/bw-tiles.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -91,7 +91,7 @@ height: 3.5em;
     width: 100%;
     border-collapse: collapse;
     color: #999;
-    box-shadow: 3px 3px 3px #000;
+    box-shadow: 3px 3px 3px #777;
 }
 
 #main-content table.grid th {
