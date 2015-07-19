@@ -1,11 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-<a href='/organizations/{{ $poll->organizations->id }}/poll' class='btn btn-success btn-outline'>Back to Poll List</a>
-<br><br>
+
 
 <div class='row'>
+    <div class='col-sm-2'></div>
     <div class='col-sm-8'>
+        <a href='/organizations/{{ $poll->organizations->id }}/poll' class='btn btn-success btn-outline'>Back to Poll List</a>
+        <br><br>
         <div class='panel panel-default'>
             <div class='panel-heading'>
                 Current Poll
@@ -29,5 +31,6 @@
             </div>
         </div>
     </div>
+    <div class='col-sm-2'></div>
 </div>    
 @endsection
