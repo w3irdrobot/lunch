@@ -333,3 +333,7 @@ input, textarea, select {
     background-size: 100%;
     background-attachment: fixed;
 }
+
+tr:nth-child(even) {
+    background-color: #f1f2f4;
+}
