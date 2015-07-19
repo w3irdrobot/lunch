@@ -26,7 +26,7 @@
                             @else
                             <span class='success'>Open</span>
                             @endif
-                            <a href='/organizations-orders/{{$order->id}}/lineitem/create' class='btn btn-xs'><i class='fa fa-plus'></i> Order</a>
+                            <a href='/organizations-orders/{{$order->id}}/lineitem/create' class='btn btn-xs {{!$order->closed_at ? '' : 'disabled'}}'><i class='fa fa-plus'></i> Order</a>
                             <a href='/organizations/{{$order->organization()->id}}/organizations-orders/{{$order->id}}' class='btn btn-xs'> <i class='fa fa-folder-open'></i> View</a>
                         </li>
                         @endforeach
