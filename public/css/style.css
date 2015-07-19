@@ -107,7 +107,6 @@ height: 3.5em;
 }
 
 #content input[type=text] {
-    width: 20%;
     min-width: 200px;
     height: 45px;
     padding: 5px;
@@ -131,6 +130,10 @@ height: 3.5em;
     padding: 10px;
 }
 
+#content label{
+	color: #000000;
+
+}
 .login {
   width: 25em;
   height: auto;

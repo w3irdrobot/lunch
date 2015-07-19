@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="frontpage">
-    <p>Pick up lunch for the group, without all the back in fourth.</p>
+    <p>Pick up lunch for the group, without all the back and fourth.</p>
 </div>
 
 <div class="login"> 
