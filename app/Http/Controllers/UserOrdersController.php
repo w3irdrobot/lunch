@@ -22,9 +22,17 @@ class UserOrdersController extends Controller
      */
     public function index(Request $request)
     {
-        $user_order = \App\UserOrder::findOrFail($request->input('user_order', 2));
+        $user_orders = $request->user()->userOrders;
         return view('userOrders.list', [
-            'user_order' => $user_order,
+            'user_orders' => $user_orders,
         ]);        
+    }  
+    
+    public function create(Request $request, $ordOrgId)
+    {
+        return view('userOrders.list', [
+            'restaurant' => new \App\Restaurant(),
+            'organization_id' => $orgId
+        ]);
     }
 }

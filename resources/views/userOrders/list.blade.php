@@ -1,21 +1,19 @@
 @extends('layouts.master')
 
-<a href='/restaurant/create'>Add New Restaurant</a>
 <table class='table' border='1'>
     <tr>
-        <th>Name</th>
-        <th>Used By Org</th>
+        <th>Restaurant</th>
+        <th>Order</th>
+        <th>Default</th>
+        <th>Date Created</th>
     </tr>
-    @foreach ($restaurants as $restaurant)
+    
+    @foreach ($user_orders as $user_order)
         <tr>
-            <td>{{ $restaurant->name }}</td>
-            <td>
-                @if ($restaurant->is_used)
-                <a href='/organization/{{ $organization->id }}/restaurant/remove/{{ $restaurant->id }}'>Remove</a>
-                @else
-                <a href='/organization/{{ $organization->id }}/restaurant/add/{{ $restaurant->id }}'>Add</a>
-                @endif
-            </td>
+            <td>{{ $user_order->restaurant->name }}</td>
+            <td>{{ $user_order->order }}</td>
+            <td>{{ $user_order->default == 1 ? "yes" : "no" }}</td>
+            <td>{{ $user_order->created_at }}</td>
         </tr>
     @endforeach
 </table>

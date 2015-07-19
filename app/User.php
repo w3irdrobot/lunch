@@ -34,4 +34,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function pollResponses() {
         return $this->belongsToMany('App\PollRestaurant','polls_responses');
     }
+    
+    public function userOrders() {
+        return $this->hasMany('App\UserOrder','user_id');
+    }
 }
