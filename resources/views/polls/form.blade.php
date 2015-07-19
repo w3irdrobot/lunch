@@ -8,25 +8,67 @@
     @endif
 
     <h1>Poll Creation</h1>
-    <div class='panel panel-default'>
-        <div class='panel-heading'>
-            Add New Poll
-        </div>
-        <div class='panel-body'>    
-        <p class="p-desc">When should the votes be in by?</p>
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='panel panel-default'>
+                <div class='panel-heading'>
+                    Add New Poll
+                </div>
+                <div class='panel-body'>    
+                <p class="p-desc">When should the votes be in by?</p>
 
-        <div class='input-group date'>
-            <input id="datepicker" type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" style="width: 100%;" />
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+                <div class='input-group date'>
+                    <input id="datepicker" type='text' name='Poll[closed_by]' value="{{ $poll->closed_by }}" style="width: 100%;" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <script>
+                      $(function() {
+                        $( "#datepicker" ).datetimepicker(
+                         {
+                        /*
+                            timeFormat
+                            Default: "HH:mm",
+                            A Localization Setting - String of format tokens to be replaced with the time.
+                        */
+                        timeFormat: "hh:mm tt",
+                        /*
+                            hourMin
+                            Default: 0,
+                            The minimum hour allowed for all dates.
+                        */
+                        hourMin: 8,
+                        /*
+                            hourMax
+                            Default: 23, 
+                            The maximum hour allowed for all dates.
+                        */
+                        hourMax: 16,
+                        /*
+                            numberOfMonths
+                            jQuery DatePicker option
+                            that will show two months in datepicker
+                        */
+                        numberOfMonths: 1,
+                        /*
+                            minDate
+                            jQuery datepicker option 
+                            which set today date as minimum date
+                        */
+                        minDate: 0,
+                        /*
+                            maxDate
+                            jQuery datepicker option 
+                            which set 30 days later date as maximum date
+                        */
+                        maxDate: 30
+                         });
+                });
+                </script>
+                <input id="poll_save" type='submit' class='btn btn-success btn-outline' value='Save' />
+            </div>
         </div>
-        <script>
-              $(function() {
-                $( "#datepicker" ).datepicker();
-              });
-        </script>
-        <input id="poll_save" type='submit' class='btn btn-success btn-outline' value='Save' />
     </div>
 </div>
 </form>

@@ -55,7 +55,7 @@ class PollsController extends Controller
         $poll = new \App\Poll();
         $poll->organization_id = $orgId;
         $poll->fill($request->input('Poll',[]));
-        
+        $poll->closed_by = date("Y-m-d H:i:s", strtotime($poll->closed_by));
         if($poll->isValid()) {
             $poll->save();
             return redirect()->route('poll.index',['orgId'=>$poll->organization_id]);
