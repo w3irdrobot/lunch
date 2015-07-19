@@ -25,7 +25,15 @@ class OrganizationOrder extends Model {
     ];
 
     public function userOrders() {
-        return $this->hasMany('App\UserOrder');
+        return $this->hasMany('App\LineItem','');
+    }
+    
+    public function restaurant() {
+        return \App\Restaurant::join('organizations_restaurants','restaurants.id','=','organizations_restaurants.restaurant_id')
+            ->join('organization_orders','organization_orders.organization_restaurant_id','=','organizations_restaurants.id')
+            ->where('organization_orders.id','=',$this->id)
+            ->select('restaurants.*')
+            ->first();
     }
 
 }

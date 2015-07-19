@@ -38,5 +38,13 @@ class Organization extends Model {
     public function restaurants() {
         return $this->belongsToMany('App\Restaurant','organizations_restaurants');
     }
+    
+    public function orders() {
+        return \App\OrganizationOrder::join('organizations_restaurants','organization_orders.organization_restaurant_id','=','organizations_restaurants.id')
+            ->where('organizations_restaurants.organization_id','=',$this->id)
+            ->orderBy('organization_orders.created_at','desc')
+            ->select('organization_orders.*')
+            ->get();
+    }
 
 }

@@ -25,6 +25,10 @@ Route::get('organizations/{orgId}/poll', ['uses' => 'PollsController@index', 'as
 Route::get('organizations/{orgId}/poll/create', ['uses' => 'PollsController@create', 'as' => 'poll.create']);
 Route::post('organizations/{orgId}/poll', ['uses' => 'PollsController@store', 'as' => 'poll.store']);
 
+Route::get('organizations/{orgId}/order', ['uses' => 'OrganizationOrderController@index', 'as' => 'orgorder.index']);
+Route::get('organizations/{orgId}/order/create', ['uses' => 'OrganizationOrderController@create', 'as' => 'orgorder.create']);
+Route::post('organizations/{orgId}/order', ['uses' => 'OrganizationOrderController@store', 'as' => 'orgorder.store']);
+
 Route::get('polls/{id}/restaurant/add', ['uses' => 'PollsController@addRestaurant', 'as' => 'poll.restaurantAdd']);
 Route::post('polls/{id}/restaurant/store', ['uses' => 'PollsController@storeRestaurant', 'as' => 'poll.restaurantAdd']);
 
