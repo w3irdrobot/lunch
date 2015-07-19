@@ -12,7 +12,6 @@
     </head>
     <body>
 
-
         <div id="page_header">
 
             <div class="container">
