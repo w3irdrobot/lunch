@@ -25,7 +25,7 @@
 
                     <div class="col-md-12">
 
-                        <h1> <img src="/img/round-logo.png" height="42" width="42"> Lunch Run</h1> 
+                        <h1> <img src="/img/round-logo.png" height="42" width="42"> Lunch.Run</h1> 
 
                     </div><!-- end col-md-12 -->
 
