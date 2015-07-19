@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-<a href='/organization/{{$organization->id}}/poll/create'>Add New Poll</a>
+<a href='/organizations/{{$organization->id}}/poll/create'>Add New Poll</a>
 <a href='/organizations/{{ $organization->id }}'>Back to Dashboard</a>
 <table class='table' border='1'>
     <tr>
@@ -23,6 +23,7 @@
             </td>
             <td>
                 <a href='/poll/{{$poll->id}}'>Vote and Results</a>
+                <a href='/poll/{{$poll->id}}/close'>Close Vote</a>
             </td>
         </tr>
     @endforeach

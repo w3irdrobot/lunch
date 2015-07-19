@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-<form action='/organization/{{ $organization_id }}/restaurant' method='POST'>
+<form action='/organizations/{{ $organization_id }}/restaurant' method='POST'>
     {!! csrf_field() !!}
     @if($errors->any())
     <h4>{{$errors->first()}}</h4>
