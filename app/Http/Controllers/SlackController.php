@@ -16,7 +16,7 @@ class SlackController extends Controller
 
         $message = "Here's today's choices for lunch: ";
         $message .= $poll->restaurants->implode('name', ', ');
-        $message .= ". Make sure to `/vote` your response!";
+        $message .= ". Make sure to <" . route('poll.view', [$poll->id]) . "|vote for your response>!";
         $body = json_encode(['text' => $message]);
 
         $client = new \GuzzleHttp\Client();
@@ -30,7 +30,7 @@ class SlackController extends Controller
         $order = OrganizationOrder::orderBy('created_at', 'desc')->first();
 
         $message = "Today's lunch will be " . $order->restaurant()->name . "!";
-        $message .= " Make sure to `/order` your response! Send `/order default` to choose your default order.";
+        $message .= " Make sure to <" . route('lineitem.create', [$order->id]) . "|put in your order>!";
         $body = json_encode(['text' => $message]);
 
         $client = new \GuzzleHttp\Client();
