@@ -1,6 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
+@if($errors->any())
+    <div class="alert alert-danger center">
+        {{$errors->first()}}
+    </div>
+@endif
+
 <div id="frontpage">
     <p>Pick up lunch for the group, without all the back and fourth.</p>
 </div>
