@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
-<a href='/restaurant/create'>Add New Restaurant</a>
+<a href='/organization/{{ $organization->id }}/restaurant/create'>Add New Restaurant</a>
+<a href='/organizations/{{ $organization->id }}'>Back to Dashboard</a>
 <table class='table' border='1'>
     <tr>
         <th>Name</th>

@@ -20,9 +20,9 @@ class RestaurantsController extends Controller
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $orgId)
     {
-        $organization = \App\Organization::findOrFail($request->input('organization',2));
+        $organization = \App\Organization::findOrFail($orgId);
         $restaurants = Restaurant::orderBy('name')->get();
         foreach($restaurants as $restaurant) {
             $restaurant->is_used = false;
@@ -45,10 +45,11 @@ class RestaurantsController extends Controller
      *
      * @return Response
      */
-    public function create(Request $request)
+    public function create(Request $request, $orgId)
     {
         return view('restaurants.form', [
-            'restaurant' => new \App\Restaurant()
+            'restaurant' => new \App\Restaurant(),
+            'organization_id' => $orgId
         ]);
     }
 
@@ -58,13 +59,13 @@ class RestaurantsController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $orgId)
     {
         $restaurant = new \App\Restaurant();
         $restaurant->fill($request->input('Restaurant',[]));
         if($restaurant->isValid()) {
             $restaurant->save();
-            return redirect()->route('restaurant.index');
+            return redirect()->route('restaurant.index',['orgId'=>$orgId]);
         } else {
             return redirect()->route('restaurant.create')
                 ->withErrors($restaurant->getErrors())

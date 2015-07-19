@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 <a href='/organization/{{$organization->id}}/poll/create'>Add New Poll</a>
+<a href='/organizations/{{ $organization->id }}'>Back to Dashboard</a>
 <table class='table' border='1'>
     <tr>
         <th>Due Date</th>

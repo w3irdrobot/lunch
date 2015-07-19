@@ -60,7 +60,7 @@ class OrganizationsController extends Controller
         $restaurant = Restaurant::find($id);
         $organization->restaurants()->save($restaurant);
 
-        return redirect()->route('restaurant.index');
+        return redirect()->route('restaurant.index',['orgId'=>$orgId]);
     }
 
     public function removeRestaurant(Request $request, $orgId, $id) {
@@ -68,7 +68,7 @@ class OrganizationsController extends Controller
         /* @var $organization Organization */
         $organization->restaurants()->detach($id);
 
-        return redirect()->route('restaurant.index');
+        return redirect()->route('restaurant.index',['orgId'=>$orgId]);
     }
 
     public function add() {
@@ -86,5 +86,13 @@ class OrganizationsController extends Controller
             ->route('newOrganizationForm')
             ->withInput()
             ->withErrors($organization->getErrors());
+    }
+    
+    public function show($id) {
+        $organization = Organization::find($id);
+        
+        return view('organizations.view',[
+            'organization' => $organization,
+        ]);
     }
 }
