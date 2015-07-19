@@ -69,12 +69,12 @@
     <div class='col-lg-3'>
         <div class='panel panel-default orglist'>
             <div class='panel-heading'>
-                My Seetings
+                My Settings
             </div>
             <div class='panel-body'>
                 <a href='/user-orders' class='btn btn-success' style='width: 100%; margin-top:5px;'>My Orders</a>
-                <a href='/slack/outgoing-order/{{ $organization->id }}' class='btn btn-success' style='width: 100%; margin-top:5px;'>Slack Order Reminder</a>
                 <a href='/slack/outgoing-vote/{{ $organization->id }}' class='btn btn-success' style='width: 100%; margin-top:5px;'>Slack Vote Reminder</a>
+                <a href='/slack/outgoing-order/{{ $organization->id }}' class='btn btn-success' style='width: 100%; margin-top:5px;'>Slack Order Reminder</a>
             </div>
         </div>
         <div class='panel panel-default orglist'>
