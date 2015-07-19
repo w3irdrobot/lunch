@@ -30,7 +30,7 @@ class AuthController extends Controller
         AuthenticatesUsers::redirectPath insteadof RedirectsUsers;
     }
 
-    protected $redirectPath = '/dashboard';
+    protected $redirectPath = '/organizations';
 
     /**
      * Create a new authentication controller instance.
@@ -40,6 +40,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+        $this->redirectAfterLogout = 'auth/login';
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<form action='/organizations-orders/{{$orgOrder->organization()->id}}/lineitem' method='POST' style='background-color: white;'>
+<form action='/organizations-orders/{{$orgOrder->organization()->id}}/lineitem' method='POST'>
     {!! csrf_field() !!}
     @if($errors->any())
     <h4>{{$errors->first()}}</h4>

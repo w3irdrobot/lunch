@@ -38,4 +38,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function userOrders() {
         return $this->hasMany('App\UserOrder','user_id');
     }
+    
+    public function roles() {
+        return $this->hasMany('App\Role','user_id');
+    }
 }

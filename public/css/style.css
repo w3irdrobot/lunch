@@ -273,3 +273,33 @@ input, textarea, select {
   bottom: 0;
   color: #fff;
 }
+.toprightmenu {
+    margin-bottom: -40px; position: relative; z-index: 5; padding: 10px;
+    font-size: 14px;
+    color: white;
+}
+.toprightmenu a {
+    color: white;
+    text-decoration: none;
+    padding: 0px 5px;
+}
+.toprightmenu a:hover {
+    color: #ccc;
+    text-decoration: none;
+}
+.orglist .panel-heading {
+    font-weight: bold;
+}
+.orglist ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.orglist ul li {
+    margin: 0px;
+    padding: 0px;
+}
+.orglist ul li a {
+    width: 100%;
+    margin: 2px 0px;
+}

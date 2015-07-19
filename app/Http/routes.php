@@ -3,6 +3,8 @@
 Route::get('organizations/add', ['uses' => 'OrganizationsController@add', 'as' => 'newOrganizationForm']);
 Route::post('organizations', ['uses' => 'OrganizationsController@create', 'as' => 'createOrganization']);
 
+Route::get('organizations', ['uses' => 'OrganizationsController@show', 'as' => 'organization.default']);
+
 Route::get('organizations/{id}/users', ['uses' => 'OrganizationsController@users', 'as' => 'organizationUsers']);
 Route::post('organizations/{id}/invite', ['uses' => 'OrganizationsController@sendInvite', 'as' => 'organizationInvite']);
 Route::get('organizations/{id}', ['uses' => 'OrganizationsController@show', 'as' => 'organization.view']);

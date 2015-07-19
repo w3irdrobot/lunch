@@ -79,6 +79,14 @@ class OrganizationsController extends Controller
         $organization = Organization::create(['name' => $request->input('name')]);
 
         if ($organization->isValid()) {
+            
+            //create a role for current user
+            $role = new Role();
+            $role->user_id = $request->user()->id;
+            $role->organization_id = $organization->id;
+            $role->role = 'admin';
+            $role->save();
+            
             return redirect()->route('organizationUsers', [$organization->id]);
         }
 
@@ -88,11 +96,19 @@ class OrganizationsController extends Controller
             ->withErrors($organization->getErrors());
     }
     
-    public function show($id) {
+    public function show(Request $request, $id=0) {
+        $roles = $request->user()->roles;
+        if($id == 0 && $roles) {
+            $id = $roles[0]->id;
+        }
+        
         $organization = Organization::find($id);
+        
+        
         
         return view('organizations.view',[
             'organization' => $organization,
+            'roles' => $roles
         ]);
     }
 }
