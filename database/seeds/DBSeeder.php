@@ -21,10 +21,7 @@ class DBSeeder extends Seeder
         ]);  
         
         $organization = \App\Organization::create([
-            'name' => 'Testing1',
-            'city' => 'Cincinnati',
-            'state' => 'OH',
-            'country' => 'USA',
+            'name' => 'Testing1',            
         ]);        
         
         $poll = \App\Poll::create([
@@ -50,7 +47,6 @@ class DBSeeder extends Seeder
         
         $user_order = \App\UserOrder::create([
             'user_id' => 1,
-            'order_organization_id' => 1,
             'restaurant_id' => 1,
             'default' => 1,
             'order' => 'Test Burger',         
