@@ -31,7 +31,7 @@ height: 3.5em;
 	top: 0px;
 	}
 
-#content {
+#main-content {
   background-image: url("/img/bw-tiles.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -47,35 +47,45 @@ height: 3.5em;
     margin: 0 auto;
     padding: 20px;
     max-width: 750px;
-    color: #000000;
+    color: #000;
 }
 
-#content h1 {
+#main-content h1 {
 	margin:0 0 16px;
 	color: #fff;
 	font:26px/27px 'Rockwell W01', Arial, Helvetica, sans-serif;
 }
-#content p {
+#main-content p {
 	margin:0 0 4px;
 	margin: 15px 0px !important;
 	font-size: 1.2em;
 	line-height: 1.7em !important;
 	color: #666 !important;
 }
-#content p.type2 {
+#main-content p.type2 {
 	margin:0;
 }
-#content p.type3 {
+#main-content p.type3 {
 	margin:0 0 9px;
 }
-#content p a {
+#main-content p a {
 	text-decoration:underline;
 }
-#content p a:hover {
+#main-content p a:hover {
 	text-decoration:none;
 }
 
-#content table.grid {
+#main-content img.default { 
+    width: 35px;
+    height: auto;
+}
+
+#main-content img.unselected {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+#main-content table.grid {
     margin: 0 auto;
     margin-top: 25px;
     width: 100%;
@@ -84,7 +94,7 @@ height: 3.5em;
     box-shadow: 3px 3px 3px #000;
 }
 
-#content table.grid th {
+#main-content table.grid th {
     background: #CCC;
     background: -webkit-linear-gradient(#DDD, #CCC);
     background: -o-linear-gradient(#DDD, #CCC);
@@ -93,7 +103,7 @@ height: 3.5em;
     color: #444;
 }
 
-#content table.grid tr {
+#main-content table.grid tr {
     background: #F1F1F1;
     background: -webkit-linear-gradient(#F1F1F1, #EEE);
     background: -o-linear-gradient(#F1F1F1, #EEE);
@@ -101,46 +111,32 @@ height: 3.5em;
     background: linear-gradient(#F1F1F1, #EEE);
 }
 
-#content .skinny {
+#main-content .skinny {
     margin: 0;
     max-width: 450px;
 }
 
-#content .form-left {
+#main-content .form-left {
     width: 25%;
 }
-#content .form-right {
+#main-content .form-right {
     width: 75%;
 }
 
-#content input[type=text] {
+#main-content input[type=text] {
     min-width: 200px;
     height: 45px;
     padding: 5px;
 }
 
-#content input {
+#main-content input {
     color: #222;
 }
 
-#content .default { 
-    width: 35px;
-    height: auto;
-}
-
-#content .unselected {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-}
-
-#content select {
+#main-content select {
     padding: 10px;
 }
 
-#content label{
-	color: #000000;
-
-}
 .login {
   width: 25em;
   height: auto;
@@ -167,67 +163,67 @@ height: 3.5em;
 
 
 input, textarea, select {
-	font:100% arial,sans-serif;
-	vertical-align:middle;
-	color:#000;
-	overflow: auto;
+    font:100% arial,sans-serif;
+    vertical-align:middle;
+    color:#000;
+    overflow: auto;
 }
 
 #frontpage {
-  width: 40em;
-  height: auto;
-  margin-left: 10%;
-  margin-top: 10%;
+    width: 40em;
+    height: auto;
+    margin-left: 10%;
+    margin-top: 10%;
  }
 
 #frontpage p{
-	font-size: 4em;
-	color: #FFFFFF !important;
+    font-size: 4em;
+    color: #FFFFFF !important;
 }
 
 #login-submit{
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  font-size: medium;
-  background-color: #EA5959;
-  border: none;
-  font-family: 'Orator Std';
-  color: #FFFFFF;
-  height: 2em;
-  margin-top: 1em;
-  margin-bottom: 1em;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: medium;
+    background-color: #EA5959;
+    border: none;
+    font-family: 'Orator Std';
+    color: #FFFFFF;
+    height: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #register-submit {
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  font-size: medium;
-  background-color: #EA5959;
-  border: none;
-  font-family: 'Orator Std';
-  color: #FFFFFF;
-  height: 2em;
-  margin-top: 1em;
-  margin-bottom: 1em;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: medium;
+    background-color: #EA5959;
+    border: none;
+    font-family: 'Orator Std';
+    color: #FFFFFF;
+    height: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .form-group input{
-	width: 100%; 
+        width: 100%; 
 }
 
 .form-group{
-	width: 80%;
-	margin-right: 10%;
-	margin-left: 10% 
+        width: 80%;
+        margin-right: 10%;
+        margin-left: 10% 
 }
 
 .gooseberry{
-	width: 50%;
-	text-align: center;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 2em;
+        width: 50%;
+        text-align: center;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 2em;
 }
 
 .center_form {
