@@ -99,7 +99,7 @@ class OrganizationsController extends Controller
     public function show(Request $request, $id=0) {
         $roles = $request->user()->roles;
         if($id == 0 && $roles) {
-            $id = $roles[0]->id;
+            $id = $roles[0]->organization_id;
         }
         
         $organization = Organization::find($id);
